@@ -3,25 +3,29 @@
 		<headertext>Featured IMVironments</headertext>
 		<ctatext>Try it now!</ctatext>
 	</imvgallerypromo>
-	<imv gallery="1" id="dilbert" name="Dilbert" ver="104">
-		<category>Comics and Characters</category>
-		<picture>https://s.yimg.com/lq/i/mesg/imv/dilbert3_gallery.gif</picture>
-		<description>Dilbert is still stuck in his cubicle, but now he&apos;s back with a new Messenger IMV! Dilbert works on his desktop computer as Dogbert looks on. Be sure to buzz your friends (Ctrl+G) and see what Dogbert really thinks of Dilbert.</description>
-		<galleryName>Dilbert</galleryName>
-		<feature>buzz</feature>
+	<imv gallery="1" gallerypromo="2" id="flickr" name="Flickr" ver="12">
+		<promo ver="4">https://s.yimg.com/pu/dl/imv/promo/flickr.cab</promo>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/flickr_gallery2.jpg</picture>
+		<description>From snowy landscapes in the winter, to sunny beaches in the summer, spice up your conversation with the some of the most interesting seasonal photos on Flickr.</description>
+		<galleryName>Flickr</galleryName>
 	</imv>
-	<imv gallery="1" id="peanuts" name="Peanuts" ver="108">
-		<category>Comics and Characters</category>
-		<picture>https://s.yimg.com/lq/i/mesg/imv/peanuts3_gallery.gif</picture>
-		<description>The gang from Peanuts is back in a whole new IMVironment. Charlie Brown eagerly checks his mail, and be sure to buzz your friend to see what&apos;s waiting for him.	Click to visit the Peanuts official site, or get Peanuts in your e-mail box.</description>
-		<galleryName>Peanuts</galleryName>
-		<feature>buzz</feature>
+	<imv gallery="1" gallerypromo="1" id="thethread" name="The Thread" ver="53">
+		<promo ver="30">https://s.yimg.com/pu/dl/imv/promo/thethreadgeneric.cab</promo>
+		<picture>https://s.yimg.com/pu/asset/imv/thethreadgeneric_gallery.jpg</picture>
+		<description>Do you love celebrity style? Then watch the Thread while you chat. The Thread brings you the hottest styles from your favorite TV shows, movies and music videos.</description>
+		<galleryName>The Thread</galleryName>
 	</imv>
-	<imv gallery="1" id="garfieldgames" name="Garfield" ver="105">
-		<category>Comics and Characters</category>
-		<picture>https://s.yimg.com/lq/i/mesg/imv/imv_garfield2.gif</picture>
-		<description>Look who&apos;s raiding the refrigerator... it&apos;s your old pal Garfield! Andy our friend can help him rummage for a tasty snack simply by typing a message to you.  Be sure to buzz a friend (Ctrl + G) to see another snacktime visitor.</description>
-		<galleryName>Garfield</galleryName>
-		<feature>buzz</feature>
+	<imv gallery="1" id="emoticats" name="Emoticats" ver="15">
+		<category>Animals and Nature</category>
+		<topFive>1</topFive>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/emoticats_gallery.jpg</picture>
+		<description>Love emoticons? Now you can adopt an &quot;Emoticat&amp;reg;&quot; as your display image or just insert one into your conversation. Open it up and start turning the cat photos into emoticons by zooming in on each cat!</description>
+		<galleryName>Emoticats&amp;reg;</galleryName>
+	</imv>
+	<imv gallery="1" id="fishtank" name="Fishtank" ver="105">
+		<category>Animals and Nature</category>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/imv_fish.gif</picture>
+		<description>Looking for a virtual fish tank to calm your day? Download our Fishtank IMVironment and watch the colorful fishes swim around effortlessly. A great way to relieve stress as you chat with a friend or have it open in your desktop while you work.</description>
+		<galleryName>Fishtank</galleryName>
 	</imv>
 </imvironments>

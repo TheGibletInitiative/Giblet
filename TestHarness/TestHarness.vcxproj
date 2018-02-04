@@ -187,10 +187,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="htdoc\chatCategories.xml" />
-    <Xml Include="htdoc\roomTopics.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="htdoc\chat.yahoo.com\c2\msg\trans.html" />
     <None Include="htdoc\chat.yahoo.com\c\admsg.html" />
     <None Include="htdoc\chat.yahoo.com\c\msg\chat.html" />
@@ -201,6 +197,13 @@
     <None Include="htdoc\my.yahoo.com\tearoff\scoreboard.html" />
     <None Include="htdoc\my.yahoo.com\tearoff\sites.html" />
     <None Include="htdoc\my.yahoo.com\tearoff\weather.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="htdoc\insider.yahoo.com\chatCategories.xml" />
+    <Xml Include="htdoc\insider.yahoo.com\filters.xml" />
+    <Xml Include="htdoc\insider.yahoo.com\imvironments.xml" />
+    <Xml Include="htdoc\insider.yahoo.com\roomTopics.xml" />
+    <Xml Include="htdoc\insider.yahoo.com\system.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

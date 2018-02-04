@@ -1,4 +1,4 @@
-<system intl="us">
+<system>
 	<feature enabled="0" name="net2phone"/>
 	<feature enabled="0" name="sms"/>
 	<feature enabled="0" name="login2mobile"/>

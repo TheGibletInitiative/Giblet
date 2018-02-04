@@ -37,6 +37,9 @@
     <Filter Include="%40htdoc\chat.yahoo.com\c2\msg">
       <UniqueIdentifier>{07ed2929-9010-4331-a4a2-8e3cdbb68b33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="%40htdoc\insider.yahoo.com">
+      <UniqueIdentifier>{94409b5c-978b-40a3-8e7e-bf84ddd862e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -53,14 +56,6 @@
     <ClCompile Include="TestHarness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="htdoc\chatCategories.xml">
-      <Filter>%40htdoc</Filter>
-    </Xml>
-    <Xml Include="htdoc\roomTopics.xml">
-      <Filter>%40htdoc</Filter>
-    </Xml>
   </ItemGroup>
   <ItemGroup>
     <None Include="htdoc\chat.yahoo.com\c\msg\chat.html">
@@ -93,5 +88,22 @@
     <None Include="htdoc\chat.yahoo.com\c\admsg.html">
       <Filter>%40htdoc\chat.yahoo.com\c</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="htdoc\insider.yahoo.com\chatCategories.xml">
+      <Filter>%40htdoc\insider.yahoo.com</Filter>
+    </Xml>
+    <Xml Include="htdoc\insider.yahoo.com\filters.xml">
+      <Filter>%40htdoc\insider.yahoo.com</Filter>
+    </Xml>
+    <Xml Include="htdoc\insider.yahoo.com\imvironments.xml">
+      <Filter>%40htdoc\insider.yahoo.com</Filter>
+    </Xml>
+    <Xml Include="htdoc\insider.yahoo.com\roomTopics.xml">
+      <Filter>%40htdoc\insider.yahoo.com</Filter>
+    </Xml>
+    <Xml Include="htdoc\insider.yahoo.com\system.xml">
+      <Filter>%40htdoc\insider.yahoo.com</Filter>
+    </Xml>
   </ItemGroup>
 </Project>
