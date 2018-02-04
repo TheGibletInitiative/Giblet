@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 
+
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
@@ -27,6 +28,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using session_type = YMSGSession;
 
 		static const size_t DefaultMinBufferReserver = 512;
+		static const size_t PaxPayloadSize = 0x10000;
 
 
 	public:
@@ -42,17 +44,15 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual void Append(int key, const char* value);
 
 		template<class Type_>
-		typename std::enable_if<std::is_integral<Type_>::value, Type_>::type Append(int key, const Type_& value)
+		typename std::enable_if<std::is_integral<Type_>::value, void>::type Append(int key, const Type_& value)
 		{
 			Append(key, string_view_type(std::to_string(value)));
-			return value;
 		}
 
 		template<class Type_>
-		typename std::enable_if<std::is_enum<Type_>::value, Type_>::type Append(int key, const Type_& value)
+		typename std::enable_if<std::is_enum<Type_>::value, void>::type Append(int key, const Type_& value)
 		{
 			Append(key, static_cast<std::underlying_type<Type_>::type>(value));
-			return value;
 		}
 
 		virtual void Send(session_type& session);
