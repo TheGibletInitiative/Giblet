@@ -68,12 +68,6 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			contactOnlineBuilder.Send(session);
 		}
 
-		//	Mail notifications were delivered inbetween the contacts online and ping config packets.
-		//{
-		//	Builders::NewMailNotification newMailNotifyBuilder;
-		//	newMailNotifyBuilder.Build(session, 3);
-		//	newMailNotifyBuilder.Send(session);
-		//}
 
 		{
 			//	Ping configuration
@@ -82,29 +76,40 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			pingConfigBuilder.Send(session);
 		}
 
-		//{
-		//	//	Example yahoo alert
-		//	Builders::YahooAlert yahooAlsertBuilder;
-		//	yahooAlsertBuilder.Build(
-		//		session,
-		//		"Yahoo! Alerts",
-		//		"http://beta.alerts.yahoo.com/main.php?view=my_alerts",
-		//		"n - BreakingNews\nabstract Id: d0300002215e2\nhttp://news.yahoo.com",
-		//		"Breaking News (AP, Reuters)",
-		//		"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<HTML>\n<HEAD><TITLE>Yahoo! Alerts</TITLE>\n<META http-equiv=Content-Type \ncontent=\"text/html; charset=windows-1252\"><BASEFONT face=arial&#44;sans-serif \nsize=2>\n</HEAD>\n<BODY><B>Yahoo! Alerts</B> \n<TABLE cellSpacing=0 cellPadding=0 width=\"100%\" border=0>\n  <TBODY>\n  <TR>\n    <TD noWrap bgColor=#acb59a height=1><SPACER height=\"1\" width=\"1\" \n      type=\"block\"></TD></TR>\n  <TR>\n    <TD bgColor=#effada height=24><FONT size=2><FONT color=#ec661f><B>Breaking\n      News</B></FONT> Sunday&#44; September 26&#44; 2004&#44; 11:06 PM PDT </FONT></TD></TR>\n  <TR>\n    <TD noWrap bgColor=#acb59a height=1><SPACER height=\"1\" width=\"1\" \n      type=\"block\"></TD></TR></TBODY></TABLE>\n<P>\nMOSUL&#44; Iraq (AP) Police say a car bomb has exploded near an Iraqi National Guard patrol in the northeastern city of Mosul. </P>\n  <BR>\n  <p>\n    Visit <a href=\"http://news.yahoo.com\">Yahoo! News</a> for more details or search for this story on <a href=\"http://news.search.yahoo.com/search/news/?fr=sfp&ei=UTF-8&p=MOSUL&#44; Iraq (AP) Police say a car bomb has exploded near an Iraqi National Guard patrol in the northeastern city of Mosul.\">Yahoo! News Search</a>.  \n  </p>\n  <br>\n</td></tr></table>\n</BODY></BASEFONT></HTML>");
-		//	yahooAlsertBuilder.Send(session);
-		//}
+		if(session.GetClientId().find('@') != string_type::npos)
+		{
+			//	Example yahoo alert
+			Builders::YahooAlert yahooAlsertBuilder;
+			yahooAlsertBuilder.Build(
+				session,
+				"Yahoo! Alerts",
+				"http://beta.alerts.yahoo.com/main.php?view=my_alerts",
+				"n - BreakingNews\nabstract Id: d0300002215e2\nhttp://news.yahoo.com",
+				"Breaking News (AP, Reuters)",
+				"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n<HTML>\n<HEAD><TITLE>Yahoo! Alerts</TITLE>\n<META http-equiv=Content-Type \ncontent=\"text/html; charset=windows-1252\"><BASEFONT face=arial&#44;sans-serif \nsize=2>\n</HEAD>\n<BODY><B>Yahoo! Alerts</B> \n<TABLE cellSpacing=0 cellPadding=0 width=\"100%\" border=0>\n  <TBODY>\n  <TR>\n    <TD noWrap bgColor=#acb59a height=1><SPACER height=\"1\" width=\"1\" \n      type=\"block\"></TD></TR>\n  <TR>\n    <TD bgColor=#effada height=24><FONT size=2><FONT color=#ec661f><B>Breaking\n      News</B></FONT> Sunday&#44; September 26&#44; 2004&#44; 11:06 PM PDT </FONT></TD></TR>\n  <TR>\n    <TD noWrap bgColor=#acb59a height=1><SPACER height=\"1\" width=\"1\" \n      type=\"block\"></TD></TR></TBODY></TABLE>\n<P>\nMOSUL&#44; Iraq (AP) Police say a car bomb has exploded near an Iraqi National Guard patrol in the northeastern city of Mosul. </P>\n  <BR>\n  <p>\n    Visit <a href=\"http://news.yahoo.com\">Yahoo! News</a> for more details or search for this story on <a href=\"http://news.search.yahoo.com/search/news/?fr=sfp&ei=UTF-8&p=MOSUL&#44; Iraq (AP) Police say a car bomb has exploded near an Iraqi National Guard patrol in the northeastern city of Mosul.\">Yahoo! News Search</a>.  \n  </p>\n  <br>\n</td></tr></table>\n</BODY></BASEFONT></HTML>");
+			yahooAlsertBuilder.Send(session);
+		}
 
-		//{
-		//	newMailNotifyBuilder.Build(session, "address", "name", "subject");
-		//	newMailNotifyBuilder.Send(session);
-		//}
+		if(session.GetClientId().find('-') != string_type::npos)
+		{
+			Builders::NewMailNotification newMailNotifyBuilder;
+			newMailNotifyBuilder.Build(session, 5);
+			newMailNotifyBuilder.Send(session);
+		}
 
-		//{
-		//	Builders::OfflineMessage messageBuilder;
-		//	messageBuilder.Build(session, session.GetClientId(), "Ed_", "Hello!", TextEncoding::None);
-		//	messageBuilder.Send(session);
-		//}
+		if(session.GetClientId().find('_') != string_type::npos)
+		{
+			Builders::NewMailNotification newMailNotifyBuilder;
+			newMailNotifyBuilder.Build(session, "me@yahoo.com", "Some Guy", "Some subject");
+			newMailNotifyBuilder.Send(session);
+		}
+
+		if(session.GetClientId().find('.') != string_type::npos)
+		{
+			Builders::OfflineMessage messageBuilder;
+			messageBuilder.Build(session, session.GetClientId(), "Ed_", "Hello!", TextEncoding::None);
+			messageBuilder.Send(session);
+		}
 
 		//{
 		//	Builders::PrivateMessage messageBuilder;
