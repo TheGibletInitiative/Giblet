@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="%40htdoc">
+      <UniqueIdentifier>{a833ab87-ce75-4610-9e44-0aac05bc8fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\chat.yahoo.com">
+      <UniqueIdentifier>{0ea7aae9-00e4-49ff-bc3b-798ee0b84c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\my.yahoo.com">
+      <UniqueIdentifier>{0f10cc7a-7ad2-4db2-9861-b5ec2d9137ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\chat.yahoo.com\c">
+      <UniqueIdentifier>{a7e27a94-2361-40f8-a634-80f825ebc736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\chat.yahoo.com\c\msg">
+      <UniqueIdentifier>{95c5db74-d9c4-4191-962f-630b0346821c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\my.yahoo.com\tearoff">
+      <UniqueIdentifier>{f6924ccb-80df-4a06-bc03-3039a0e79d4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\chat.yahoo.com\c2">
+      <UniqueIdentifier>{8dcd7b5b-8151-4780-9286-ca8a91a23760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="%40htdoc\chat.yahoo.com\c2\msg">
+      <UniqueIdentifier>{07ed2929-9010-4331-a4a2-8e3cdbb68b33}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHarness.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="htdoc\chatCategories.xml">
+      <Filter>%40htdoc</Filter>
+    </Xml>
+    <Xml Include="htdoc\roomTopics.xml">
+      <Filter>%40htdoc</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="htdoc\chat.yahoo.com\c\msg\chat.html">
+      <Filter>%40htdoc\chat.yahoo.com\c\msg</Filter>
+    </None>
+    <None Include="htdoc\chat.yahoo.com\c\msg\tabs.html">
+      <Filter>%40htdoc\chat.yahoo.com\c\msg</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\auctions.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\channel.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\faretrack.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\scoreboard.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\sites.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\my.yahoo.com\tearoff\weather.html">
+      <Filter>%40htdoc\my.yahoo.com\tearoff</Filter>
+    </None>
+    <None Include="htdoc\chat.yahoo.com\c2\msg\trans.html">
+      <Filter>%40htdoc\chat.yahoo.com\c2\msg</Filter>
+    </None>
+    <None Include="htdoc\chat.yahoo.com\c\admsg.html">
+      <Filter>%40htdoc\chat.yahoo.com\c</Filter>
+    </None>
+  </ItemGroup>
+</Project>

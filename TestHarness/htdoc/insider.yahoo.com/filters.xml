@@ -1,0 +1,12 @@
+<filters>
+	<replace command="208" field="231" flags="3" pattern="http.*|www..*" with=" "/>
+	<replace field="14" flags="3" pattern="&lt;search[^&gt;]*&gt;.*&lt;search[^&gt;]*&gt;.*&lt;search[^&gt;]*&gt;.*&lt;search[^&gt;]*&gt;" with=" "/>
+	<replace field="14" flags="3" pattern="msg:" with="msg: "/>
+	<replace field="14" flags="3" pattern="ymsgr:-kill" with=" "/>
+	<replace field="14" flags="3" pattern="geocities.com/a[0-9]{4,9}" with=" "/>
+	<replace field="14" flags="3" pattern="rmarriso.blogspot.com" with=" "/>
+	<replace field="14" flags="3" pattern="y-source.com" with=" "/>
+	<replace field="14" flags="3" pattern="geocities.com/a[0-9]{4,9}" with=" "/>
+	<replace field="14" flags="3" pattern="thecoolpics.com" with=" "/>
+	<replace field="14" flags="3" pattern="^s*s:" with=" s;"/>
+</filters>

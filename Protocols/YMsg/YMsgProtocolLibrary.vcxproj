@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8D6F6015-00BC-4C47-B422-46ABD5F2DD83}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>YMSGLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\..\Protocols\YMsg\YMsgProtocolLibrary.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\..\Protocols\YMsg\YMsgProtocolLibrary.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\..\Protocols\YMsg\YMsgProtocolLibrary.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\..\Protocols\YMsg\YMsgProtocolLibrary.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Builder.cpp" />
+    <ClCompile Include="src\Parser.cpp" />
+    <ClCompile Include="src\Server\Payloads\DenyContactAddRequest.cpp" />
+    <ClCompile Include="src\Server\Payloads\MassPrivateMessage.cpp" />
+    <ClCompile Include="src\Server\Payloads\RequestProfile.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\MassPrivateMessage.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\RequestProfile.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\SetAway.cpp" />
+    <ClCompile Include="src\ProtocolStream.cpp" />
+    <ClCompile Include="src\SessionGateway.cpp" />
+    <ClCompile Include="src\YMSGSession.cpp" />
+    <ClInclude Include="include\Protocols\YMsg\Builder.h" />
+    <ClInclude Include="include\Protocols\YMsg\Header.h" />
+    <ClInclude Include="include\Protocols\YMsg\Parser.h" />
+    <ClInclude Include="include\Protocols\YMsg\Processor.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactGroupRenamed.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\NewMailNotification.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\OfflineMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PrivateMessageError.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\SystemMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\YahooAlert.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\MassPrivateMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RequestProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\MassPrivateMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RequestProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\ProtocolStream.h" />
+    <ClInclude Include="include\Protocols\Ymsg\SessionGateway.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Types.h" />
+    <ClInclude Include="include\Protocols\Ymsg\YMSGSession.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChallengeResponse.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatLoginResponse.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ClientProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactOffline.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactOnline.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactBlockedOrUnblocked.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatroomJoined.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\AddContactRequestResult.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\AddContactRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactRemoved.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\DenyContactAddRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PrivateMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProfileActivated.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProfileDeactivated.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\TypingNotification.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProtocolAck.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PingConfiguration.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ActivateProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\Authentication.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChallengeRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChangeBlockedUser.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChatJoin.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChatLogin.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\AddContact.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\DeactivateProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\DenyContactAddRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RemoveContact.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\SetAvailable.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\SetAway.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RenameContactGroup.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\PrivateMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ServiceOperation.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ProtocolSync.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ActivateProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\AddContact.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\Authentication.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChallengeRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChangeBlockedUser.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChatJoin.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChatLogin.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\DeactivateProfile.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\DenyContactAddRequest.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RemoveContact.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\SetAvailable.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\SetAway.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RenameContactGroup.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\PrivateMessage.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ProtocolSync.h" />
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ServiceOperation.h" />
+    <ClCompile Include="src\Server\Payloads\ActivateProfile.cpp" />
+    <ClCompile Include="src\Server\Payloads\DeactivateProfile.cpp" />
+    <ClCompile Include="src\Server\Payloads\RemoveContact.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ActivateProfile.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\DeactivateProfile.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\DenyContactAddRequest.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\RemoveContact.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\SetAvailable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Server\Builders\ClientProfile.cpp" />
+    <ClCompile Include="src\Server\Payloads\Authentication.cpp" />
+    <ClCompile Include="src\Server\Payloads\ChallengeRequest.cpp" />
+    <ClCompile Include="src\Server\Payloads\ChatJoin.cpp" />
+    <ClCompile Include="src\Server\Payloads\ChatLogin.cpp" />
+    <ClCompile Include="src\Server\Payloads\ProtocolSync.cpp" />
+    <ClCompile Include="src\Server\Payloads\AddContact.cpp" />
+    <ClCompile Include="src\Server\Payloads\RenameContactGroup.cpp" />
+    <ClCompile Include="src\Server\Payloads\ServiceOperation.cpp" />
+    <ClCompile Include="src\Server\Payloads\PrivateMessage.cpp" />
+    <ClCompile Include="src\Server\Payloads\ChangeBlockedUser.cpp" />
+    <ClCompile Include="src\Server\Payloads\SetAway.cpp" />
+    <ClCompile Include="src\Server\Payloads\SetAvailable.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\AddContact.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\Authentication.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ChallengeRequest.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ChangeBlockedUser.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ChatJoin.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ChatLogin.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\PrivateMessage.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ProtocolSync.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\ServiceOperation.cpp" />
+    <ClCompile Include="src\Server\Processors\Mock\RenameContactGroup.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

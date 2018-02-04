@@ -1,0 +1,13 @@
+<system intl="us">
+	<feature enabled="0" name="net2phone"/>
+	<feature enabled="0" name="sms"/>
+	<feature enabled="0" name="login2mobile"/>
+	<feature enabled="0" name="imtbphoto"/>
+	<feature enabled="0" name="pstn"/>
+	<feature enabled="0" name="pstnin"/>
+	<feature enabled="0" name="call_forwarding"/>
+	<feature enabled="1" name="cookie_token"/>
+	<feature enabled="1" name="sumo"/>
+	<feature enabled="0" name="vitality"/>
+	<feature enabled="1" name="mail_alert"/>
+</system>

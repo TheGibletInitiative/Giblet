@@ -1,0 +1,27 @@
+<imvironments>
+	<imvgallerypromo>
+		<headertext>Featured IMVironments</headertext>
+		<ctatext>Try it now!</ctatext>
+	</imvgallerypromo>
+	<imv gallery="1" id="dilbert" name="Dilbert" ver="104">
+		<category>Comics and Characters</category>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/dilbert3_gallery.gif</picture>
+		<description>Dilbert is still stuck in his cubicle, but now he&apos;s back with a new Messenger IMV! Dilbert works on his desktop computer as Dogbert looks on. Be sure to buzz your friends (Ctrl+G) and see what Dogbert really thinks of Dilbert.</description>
+		<galleryName>Dilbert</galleryName>
+		<feature>buzz</feature>
+	</imv>
+	<imv gallery="1" id="peanuts" name="Peanuts" ver="108">
+		<category>Comics and Characters</category>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/peanuts3_gallery.gif</picture>
+		<description>The gang from Peanuts is back in a whole new IMVironment. Charlie Brown eagerly checks his mail, and be sure to buzz your friend to see what&apos;s waiting for him.	Click to visit the Peanuts official site, or get Peanuts in your e-mail box.</description>
+		<galleryName>Peanuts</galleryName>
+		<feature>buzz</feature>
+	</imv>
+	<imv gallery="1" id="garfieldgames" name="Garfield" ver="105">
+		<category>Comics and Characters</category>
+		<picture>https://s.yimg.com/lq/i/mesg/imv/imv_garfield2.gif</picture>
+		<description>Look who&apos;s raiding the refrigerator... it&apos;s your old pal Garfield! Andy our friend can help him rummage for a tasty snack simply by typing a message to you.  Be sure to buzz a friend (Ctrl + G) to see another snacktime visitor.</description>
+		<galleryName>Garfield</galleryName>
+		<feature>buzz</feature>
+	</imv>
+</imvironments>

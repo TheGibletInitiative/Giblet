@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Server">
+      <UniqueIdentifier>{85227dfd-3c2d-42be-b537-35e22856bae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server">
+      <UniqueIdentifier>{10374310-373c-4419-8df3-f7f01e0370b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Payloads">
+      <UniqueIdentifier>{4b1bec02-204b-40bd-acad-fa55dd84222a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server\Payloads">
+      <UniqueIdentifier>{77fff475-cb4c-472b-ae66-526a622ddde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Builders">
+      <UniqueIdentifier>{e0261cd1-12fb-4735-932a-162d832fd3ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server\Builders">
+      <UniqueIdentifier>{6cf631c9-237c-459d-a3be-7f702bb4aff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server\Processors">
+      <UniqueIdentifier>{12eab7e5-4711-4767-b220-c2bad394e346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server\Processors\Mock">
+      <UniqueIdentifier>{ff121fcc-13f4-4396-ac60-25efd8c739e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Processors">
+      <UniqueIdentifier>{16f07176-6c0a-45d1-bf41-b3d3c570aa4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Processors\Mock">
+      <UniqueIdentifier>{d712d13d-753f-4963-8b12-428d283e022c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Processors\XMPP">
+      <UniqueIdentifier>{17029364-0495-4d98-88c4-23e713857477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Server\Processors\PCP">
+      <UniqueIdentifier>{9c4d9259-5f41-4027-9ab8-216e74ffecdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\Authentication.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChallengeRequest.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChatJoin.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChatLogin.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ProtocolSync.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChallengeResponse.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PingConfiguration.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatLoginResponse.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProtocolAck.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ClientProfile.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactOnline.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\AddContact.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ServiceOperation.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\PrivateMessage.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ChangeBlockedUser.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\AddContact.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\Authentication.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChallengeRequest.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChangeBlockedUser.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChatJoin.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ChatLogin.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\PrivateMessage.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ProtocolSync.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ServiceOperation.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\TypingNotification.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PrivateMessage.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactBlockedOrUnblocked.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatroomJoined.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\AddContactRequest.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RenameContactGroup.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RenameContactGroup.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\SetAway.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\SetAway.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\SetAvailable.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\SetAvailable.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProfileActivated.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\ActivateProfile.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\DeactivateProfile.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\ActivateProfile.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\DeactivateProfile.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ProfileDeactivated.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\DenyContactAddRequest.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\DenyContactAddRequest.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\DenyContactAddRequest.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RemoveContact.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RemoveContact.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactRemoved.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactOffline.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\YMSGSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactGroupRenamed.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\SessionGateway.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\ProtocolStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\RequestProfile.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\RequestProfile.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\AddContactRequestResult.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\SystemMessage.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\OfflineMessage.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\NewMailNotification.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\PrivateMessageError.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Builders\YahooAlert.h">
+      <Filter>Header Files\Server\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Payloads\MassPrivateMessage.h">
+      <Filter>Header Files\Server\Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\Ymsg\Server\Processors\Mock\MassPrivateMessage.h">
+      <Filter>Header Files\Server\Processors\Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\Builder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\Parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\Processor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Server\Payloads\Authentication.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ChallengeRequest.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ChatJoin.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ChatLogin.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ProtocolSync.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Builders\ClientProfile.cpp">
+      <Filter>Source Files\Server\Builders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\AddContact.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ServiceOperation.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\PrivateMessage.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ChangeBlockedUser.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\AddContact.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\Authentication.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ChallengeRequest.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ChangeBlockedUser.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ChatJoin.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ChatLogin.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\PrivateMessage.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ProtocolSync.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ServiceOperation.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\RenameContactGroup.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\RenameContactGroup.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\SetAway.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\SetAvailable.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\SetAvailable.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\ActivateProfile.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\DeactivateProfile.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\ActivateProfile.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\DeactivateProfile.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\RemoveContact.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\RemoveContact.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\YMSGSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\SetAway.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SessionGateway.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ProtocolStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\RequestProfile.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\RequestProfile.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\MassPrivateMessage.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\MassPrivateMessage.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Processors\Mock\DenyContactAddRequest.cpp">
+      <Filter>Source Files\Server\Processors\Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\Payloads\DenyContactAddRequest.cpp">
+      <Filter>Source Files\Server\Payloads</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

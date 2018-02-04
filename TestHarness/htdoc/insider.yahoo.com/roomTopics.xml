@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<room>
+  <chatRooms>
+    <room id="1600326592" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Macintosh" name="Macintosh" />
+    <room id="1600326587" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Computers Lobby" name="Computers Lobby" />
+    <room id="1600326595" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Windows" name="Windows" />
+    <room id="1604800771" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Electronics" name="Electronics" />
+    <room id="1600390824" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Hackers' Lounge" name="Hackers' Lounge" />
+    <room id="1600326591" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Linux, FreeBSD, Solaris" name="Linux, FreeBSD, Solaris" />
+    <room id="1600326593" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Programming" name="Programming" />
+    <room id="1600326590" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Surfing The Web" name="Surfing The Web" />
+    <room id="1600682177" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Web Design" name="Web Design" />
+    <room id="1600326516" type="yahoo" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Yahoo! Auctions Chat" name="Yahoo! Auctions Chat" />
+
+    <room id="1600326597" type="yahoo" count="3" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Yahoo! Chat Help" name="Yahoo! Chat Help">
+      <!-- count is actually the room # -->
+      <lobby id="1600326597" type="yahoo" count="1" webcams="3" voices="10" users="23" topic="Topic Here"  />
+      <lobby id="1600326597" type="yahoo" count="2" webcams="3" voices="12" users="33" topic="Topic Here" />
+    </room>
+
+    <room id="1600326516" type="user" count="3" webcams="3" voices="2" users="3" topic="Topic Here" displayName="darkest_fugue's room" name="darkest_fugue's room">
+      <lobby id="1600326597" count="1" webcams="3" voices="10" users="23" topic="Topic Here"  />
+    </room>
+
+    <room id="1600326516" type="user" count="3" webcams="3" voices="2" users="3" topic="Topic Here" displayName="mido2005_alex's room" name="mido2005_alex's room">
+      <lobby id="1600326597" count="1" webcams="3" voices="10" users="23" topic="Topic Here"  />
+    </room>
+
+    <room id="1600326516" type="user" count="3" webcams="3" voices="2" users="3" topic="Topic Here" displayName="wildrose281's room" name="wildrose281's room">
+      <lobby id="1600326597" count="1" webcams="3" voices="10" users="23" topic="Topic Here"  />
+    </room>
+
+    <room id="1600326516" type="user" count="3" webcams="3" voices="2" users="3" topic="Topic Here" displayName="Mystical's magical room" name="Mystical's magical room">
+      <lobby id="1600326597" count="1" webcams="3" voices="10" users="23" topic="Topic Here"  />
+    </room>
+
+  </chatRooms>
+</room>
