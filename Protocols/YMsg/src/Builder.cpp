@@ -4,6 +4,7 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/Builder.h>
+#include <WinSock2.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

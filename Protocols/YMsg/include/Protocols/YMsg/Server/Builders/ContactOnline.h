@@ -26,7 +26,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 				static const key_type ContactId = 7;
 				static const key_type Availability = 10;	//	See Availability enum
 				static const key_type Unknown11 = 11;		//	TODO: Possible timestamp, crc, session id, etc.. Observed as "0", "BD00ADE4", "C20AAC3C"
-				static const key_type ClientType = 13;		//	FIXME: Make enum. 0 - Pager, 1 = Chat/YCHT, 2 - Game
+				static const key_type Unknown13 = 13;		//	FIXME: Figure out what this really is! Observed as "0"
 				static const key_type CustomMessage = 19;
 				static const key_type IsInChat = 17;
 				static const key_type SecondsIdle = 137;	//	TODO: Possible 6.0+ but observed in 5.5/5.6 timeframe
@@ -34,6 +34,8 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 				static const key_type IsBusy= 47;
 			};
 		};
+
+		using availability_type = detail::Availability;
 
 
 	protected:
@@ -50,18 +52,18 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			{
 				Append(Keys::ContactInfo::IdleUnknown138, contact.idleUnknown);
 			}
-			if (contact.availability == Availability::Idle)
+			if (contact.availability == availability_type::Idle)
 			{
 				//	FIXME: Determine value by timestamp that _should_ be kept in the contact details. It should use 0 to indicate no show or whatever
 				Append(Keys::ContactInfo::SecondsIdle, "0");
 			}
-			Append(Keys::ContactInfo::IsInChat, "0");
-			if (contact.availability == Availability::Custom)
+			Append(Keys::ContactInfo::IsInChat, contact.isInChat);
+			if (contact.availability == availability_type::Custom)
 			{
 				Append(Keys::ContactInfo::CustomMessage, contact.customMessage);
 			}
 			Append(Keys::ContactInfo::IsBusy, contact.isBusy);
-			Append(Keys::ContactInfo::ClientType, "1");
+			Append(Keys::ContactInfo::Unknown13, "1");
 		}
 
 

@@ -16,7 +16,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		Builders::PrivateMessage builder;
 
-		builder.Build(session, payload.clientId, payload.contactId, payload.message, to_enum<TextEncoding>(payload.encoding));
+		builder.Build(session, payload.clientId, payload.contactId, payload.message, payload.encoding);
 		builder.Send(session);
 	}
 

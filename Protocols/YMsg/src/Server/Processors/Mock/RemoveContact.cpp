@@ -15,15 +15,15 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		using StatusCode = Builders::ContactRemoved::Status;
+		using status_type = Builders::ContactRemoved::status_type;
 
-		auto statusCode(StatusCode::Success);
+		auto statusCode(status_type::Success);
 		if (!session.IsContact(payload.contactId))
 		{
-			statusCode = StatusCode::GeneralFailure;
+			statusCode = status_type::GeneralFailure;
 		}
 
-		if (statusCode == StatusCode::Success)
+		if (statusCode == status_type::Success)
 		{
 			session.RemoveContact(payload.contactId);
 		}
@@ -33,7 +33,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		contactRemovedBuilder.Send(session);
 
 		//	NOTE: Send a profile refresh so the name shows up in the buddy list!
-		if(statusCode == StatusCode::Success)
+		if(statusCode == status_type::Success)
 		{
 			Builders::ClientProfile	clientProfileBuilder;
 			clientProfileBuilder.Build(session);

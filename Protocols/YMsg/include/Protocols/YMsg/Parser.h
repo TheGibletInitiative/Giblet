@@ -5,6 +5,7 @@
 //
 #pragma once
 #include <Protocols/YMsg/Header.h>
+#include <Protocols/YMsg/Types.h>
 #include <string_view>
 #include <vector>
 

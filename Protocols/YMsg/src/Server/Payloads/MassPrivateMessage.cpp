@@ -26,7 +26,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			break;
 
 		case Keys::Encoding:
-			encoding = value;
+			encoding = to_enum<encoding_type>(value);
 			break;
 
 		default:

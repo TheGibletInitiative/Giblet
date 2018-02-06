@@ -22,7 +22,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		struct Keys
 		{
 			static const key_type ClientId = 1;
-			static const key_type BlockUserId = 7;
+			static const key_type ContactId = 7;
 			static const key_type Mode = 13;
 		};
 
@@ -35,8 +35,8 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		string_view_type	clientId;
-		string_view_type	blockUserId;
-		string_view_type	mode;
+		string_view_type	contactId;
+		string_view_type	mode;			//	TODO: Change to enum
 	};
 
 }}}}}

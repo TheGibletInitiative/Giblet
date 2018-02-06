@@ -21,7 +21,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 	void Authentication::Process(session_type& session, const header_type& header, payload_type& payload)
 	{
-		const auto initialAvailability(static_cast<Availability>(header.attribute) == Availability::Invisible ? Availability::Offline : Availability::Available);
+		//	FIXME: Need to define attributes the same way we do keys
+		const auto initialAvailability(
+			header.attribute == static_cast<std::underlying_type<detail::Availability>::type>(detail::Availability::Invisible) 
+			? detail::Availability::Offline
+			: detail::Availability::Available);
 
 		//	FIXME: Check for already being logged in
 		session.BeginSession(rand(), payload.clientId1_, initialAvailability);
@@ -33,8 +37,8 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		session.AddProfile("greg");
 
 		session.AddContact("Friends", ContactInfo(ContactInfo::Linked, "jay"));
-		session.AddContact("Friends", ContactInfo(ContactInfo::Linked, "donna", Availability::Custom, false, "Listening to Bewiz - Booters Paradise"));
-		session.AddContact("Friends", ContactInfo(ContactInfo::Linked, "david", Availability::Busy, true));
+		session.AddContact("Friends", ContactInfo(ContactInfo::Linked, "donna", ContactInfo::availability_type::Custom, false, "Listening to Bewiz - Booters Paradise"));
+		session.AddContact("Friends", ContactInfo(ContactInfo::Linked, "david", ContactInfo::availability_type::Busy, true));
 		session.AddContact("Myself", ContactInfo(ContactInfo::Linked, "winky", initialAvailability));
 		session.AddContact("Myself", ContactInfo(ContactInfo::Linked, "dinky", initialAvailability));
 		session.AddContact("Myself", ContactInfo(ContactInfo::Linked, "blinky", initialAvailability));
@@ -56,7 +60,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		{
 			auto isContactOnline = [](const ContactInfo& contact) -> bool
 			{
-				return contact.availability != Availability::Offline;
+				return contact.availability != ContactInfo::availability_type::Offline;
 			};
 
 			//	user online
@@ -107,7 +111,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		if(session.GetClientId().find('.') != string_type::npos)
 		{
 			Builders::OfflineMessage messageBuilder;
-			messageBuilder.Build(session, session.GetClientId(), "Ed_", "Hello!", TextEncoding::None);
+			messageBuilder.Build(session, session.GetClientId(), "Ed_", "Hello!", Builders::OfflineMessage::encoding_type::None);
 			messageBuilder.Send(session);
 		}
 

@@ -14,31 +14,14 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		//	TODO: Check to see if any of these requires a special attribute
-		enum class StatusCode
-		{
-			AddPending = 0,
-			GeneralFailure = 1,
-			DuplicateContact = 2,			//	Already in list
-			ContactDoesNotExist = 3,
-			InvalidCookies = 4,
-			RecursiveLockup = 5,			//	This REALLY borks messenger
-			ContactListFull = 6,
-			TooManyGroups = 7,
-			GroupAlreadyExists = 8,			//	Not sure what would trigger this
-			CannotDeleteContact = 9,
-			BlockedListFull = 10,
-			CannotDeleteReservedId = 11,	//	Can't delete reserved id. Part of parental controls maybe?
-			CannotDeleteContact2 = 12,		//	Duplicate status code. Gotta have two different reasons :)
-		};
-
+		using status_type = detail::AddContactRequestResultStatus;
 
 		virtual void Build(
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type contactGroup,
-			StatusCode status)
+			status_type status)
 		{
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::ContactId, contactId);

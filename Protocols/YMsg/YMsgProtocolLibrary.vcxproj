@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="src\Builder.cpp" />
     <ClCompile Include="src\Parser.cpp" />
+    <ClCompile Include="src\Server\Header.cpp" />
     <ClCompile Include="src\Server\Payloads\DenyContactAddRequest.cpp" />
     <ClCompile Include="src\Server\Payloads\MassPrivateMessage.cpp" />
     <ClCompile Include="src\Server\Payloads\RequestProfile.cpp" />

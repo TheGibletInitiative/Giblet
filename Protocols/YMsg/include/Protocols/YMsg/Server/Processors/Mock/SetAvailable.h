@@ -13,6 +13,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 	class SetAvailable : public PayloadProcessor<Payloads::SetAvailable>
 	{
+	protected:
+
+		using availability_type = detail::Availability;
+
+
 	public:
 
 		virtual void Process(session_type& session, const header_type& header, payload_type& payload);

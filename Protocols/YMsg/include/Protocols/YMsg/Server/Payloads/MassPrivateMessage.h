@@ -27,6 +27,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			static const key_type Encoding = 97;
 		};
 
+		using encoding_type = detail::TextEncoding;
+
+
 	public:
 
 		bool OnKeyPair(key_type key, string_view_type value) override;
@@ -37,7 +40,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		string_view_type				clientId;
 		std::vector<string_view_type>	contactIds;
 		string_view_type				message;
-		string_view_type				encoding;	//	FIXME: Use enum.
+		encoding_type					encoding;
 	};
 
 }}}}}

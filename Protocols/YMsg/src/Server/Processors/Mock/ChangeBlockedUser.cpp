@@ -21,14 +21,14 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		{
 			Builders::ContactBlocked builder;
 
-			builder.Build(session, payload.clientId, payload.blockUserId);
+			builder.Build(session, payload.clientId, payload.contactId);
 			builder.Send(session);
 		}
 		else if (payload.mode == unblockContactMode)
 		{
 			Builders::ContactUnblocked builder;
 
-			builder.Build(session, payload.clientId, payload.blockUserId);
+			builder.Build(session, payload.clientId, payload.contactId);
 			builder.Send(session);
 		}
 	}

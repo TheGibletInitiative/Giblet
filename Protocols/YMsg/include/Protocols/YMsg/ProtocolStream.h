@@ -9,7 +9,6 @@
 #include <vector>
 #include <iostream>
 #include <memory>
-#include <WinSock2.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -30,12 +29,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	};
 
 
+	//	FIXME: Rename to ProtocolBuffer
 	class ProtocolStream
 	{
 	public:
 
 		using buffer_type = std::vector<char>;
-		using session_type = YMSGSession;
+		using session_type = IPacketDispatcher::session_type;
 
 
 	public:

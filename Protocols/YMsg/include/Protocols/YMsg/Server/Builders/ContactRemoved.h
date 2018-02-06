@@ -14,20 +14,15 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		//	TODO: Determine other values
-		enum class Status
-		{
-			Success = 0,
-			GeneralFailure = 1,
-			ContactDoesNotExist = 3
-		};
+		using status_type = detail::RemoveContactStatus;
+
 
 		virtual void Build(
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type group,
-			Status status)
+			status_type status)
 		{
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);

@@ -16,7 +16,6 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		static const serviceid_type ServiceId = 6;
 
-
 	protected:
 
 		struct Keys
@@ -33,6 +32,10 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			static const key_type Unknown1002 = 1002;
 		};
 
+
+		using encoding_type = detail::TextEncoding;
+
+
 	public:
 
 		bool OnKeyPair(key_type key, string_view_type value) override;
@@ -43,7 +46,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		string_view_type	clientId;
 		string_view_type	contactId;
 		string_view_type	message;
-		string_view_type	encoding;	//	FIXME: Use enum.
+		encoding_type		encoding;
 	};
 
 }}}}}

@@ -15,12 +15,12 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		((void)header);
 		((void)payload);
 
-		session.SetAvailability(Availability::Available);
+		session.SetAvailability(availability_type::Available);
 
 		for (auto profile(session.profiles_begin()); profile != session.profiles_end(); ++profile)
 		{
 			Builders::UpdateContactStatus contactOnlineBuilder;
-			contactOnlineBuilder.Build(session, ContactInfo(ContactInfo::Linked, *profile, Availability::Available));
+			contactOnlineBuilder.Build(session, ContactInfo(ContactInfo::Linked, *profile, availability_type::Available));
 			contactOnlineBuilder.Send(session);
 		}
 	}

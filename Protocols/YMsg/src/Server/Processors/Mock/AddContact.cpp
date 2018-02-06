@@ -17,28 +17,29 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		static const string_type nonExistingUser("grag");
 		((void)header);
 
-		using StatusCode = Builders::AddContactRequestResult::StatusCode;
+		//	TODO: Make member def maybe
+		using status_type = Builders::AddContactRequestResult::status_type;
 
-		auto responseStatus(StatusCode::AddPending);
+		auto responseStatus(status_type::AddPending);
 
 		if (session.IsContact(payload.contactId))
 		{
-			responseStatus = StatusCode::DuplicateContact;
+			responseStatus = status_type::DuplicateContact;
 		}
 		else if (session.IsBlocked(payload.contactId))
 		{
 			//	FIXME: There is either a status code for this that we're missing or it's handled by Messenger.
 			//	NOTE: It does seem to be handled by messenger but that doesn't mean third party clients worked that way
-			responseStatus = StatusCode::GeneralFailure;
+			responseStatus = status_type::GeneralFailure;
 		}
 		else if (payload.contactId == nonExistingUser)
 		{
-			responseStatus = StatusCode::ContactDoesNotExist;
+			responseStatus = status_type::ContactDoesNotExist;
 		}
 		else if (payload.group.empty())
 		{
 			//	FIXME: There is either a status code for this that we're missing or it's handled by Messenger
-			responseStatus = StatusCode::GroupAlreadyExists;
+			responseStatus = status_type::GroupAlreadyExists;
 		}
 
 
@@ -48,7 +49,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		addRequestSentBuilder.Send(session);
 
 		//	loopback the add request
-		if (responseStatus == StatusCode::AddPending)
+		if (responseStatus == status_type::AddPending)
 		{
 			//	Add the contact to our session
 			session.AddContact(

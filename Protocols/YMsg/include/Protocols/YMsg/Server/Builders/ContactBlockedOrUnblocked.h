@@ -12,26 +12,33 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 	class ContactBlockedOrUnblocked : public Builder
 	{
-	protected:
+	public:
 
-		enum class Event
-		{
-			Blocked = 1,
-			Unblocked = 2
-		};
+		using status_type = detail::ContactBlockedStatus;
+		using reason_type = detail::ContactBlockedFailedReason;
+
+
+	protected:
 
 		virtual void Build(
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
-			Event event,
-			string_view_type reason = " ")	//	TODO: Create enum
+			status_type status,
+			reason_type reason = reason_type::None)
 		{
 			Initialize(session, ServiceId, AttributeId);
-			Append(Keys::ClientId, clientId);	//	from
-			Append(Keys::ContactId, contactId);	//	to
-			Append(Keys::Event, event);
-			Append(Keys::Reason, reason);		//	appears to be an error code. 0 = success. !0 generates general failure.
+			Append(Keys::ClientId, clientId);
+			Append(Keys::ContactId, contactId);
+			Append(Keys::Status, status);
+			if (reason == reason_type::None)
+			{
+				Append(Keys::Reason, " ");
+			}
+			else
+			{
+				Append(Keys::Reason, reason);
+			}
 		}
 
 
@@ -42,7 +49,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		{
 			static const key_type ClientId = 1;		//	FIXME: Shown as 0 in later versions. Verify.
 			static const key_type ContactId = 5;
-			static const key_type Event = 4;			//	FIXME: Shown as 13 in later versions. Verify.
+			static const key_type Status = 4;		//	FIXME: Shown as 13 in later versions. Verify.
 			static const key_type Reason = 66;		//	FIXME: Determine reasons and when they apply.
 		};
 
@@ -52,13 +59,15 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	};
 
 
+
+
 	class ContactBlocked : public ContactBlockedOrUnblocked
 	{
 	public:
 
 		virtual void Build(session_type& session, string_view_type clientId, string_view_type contactId)
 		{
-			ContactBlockedOrUnblocked::Build(session, clientId, contactId, Event::Blocked);
+			ContactBlockedOrUnblocked::Build(session, clientId, contactId, status_type::Blocked);
 		}
 	};
 
@@ -71,7 +80,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		virtual void Build(session_type& session, string_view_type clientId, string_view_type contactId)
 		{
-			ContactBlockedOrUnblocked::Build(session, clientId, contactId, Event::Unblocked);
+			ContactBlockedOrUnblocked::Build(session, clientId, contactId, status_type::Unblocked);
 		}
 	};
 
@@ -83,25 +92,23 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		using ContactBlockedOrUnblocked::Build;
 
-		enum class Reason
-		{
-			Duplicate = 2,
-			IsFriend = 12,
-			//	 NotIgnored = 3
-		};
-
 		virtual void Build(
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
-			Reason reason)
+			reason_type reason)
 		{
+			if (reason == reason_type::None)
+			{
+				throw std::invalid_argument("reason cannot be None");
+			}
+
 			ContactBlockedOrUnblocked::Build(
 				session,
 				clientId,
 				contactId,
-				Event::Blocked,	//	FIXME: Verify this is correct. Should be Action::Error(3) I think!
-				std::to_string(static_cast<int>(reason)));
+				status_type::Blocked,	//	FIXME: Verify this is correct. Should be Action::Error(3) I think!
+				reason);
 		}
 	};
 

@@ -14,12 +14,15 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
+		using encoding_type = detail::TextEncoding;
+
+
 		virtual void Build(
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type message,
-			TextEncoding encoding)
+			encoding_type encoding)
 		{
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);	

@@ -14,20 +14,14 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		enum class Method
-		{
-			None = 0,
-			InApp = 1,
-			HTTPS = 2
-		};
-
+		using authentication_type = detail::AuthenticationMethod;
 
 		virtual void Build(session_type& session, string_view_type clientId, string_view_type challenge)
 		{
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Challenger, challenge);
-			Append(Keys::Method, Method::InApp);
+			Append(Keys::Method, authentication_type::InApp);
 		}
 
 
@@ -35,7 +29,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		{
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
-			Append(Keys::Method, Method::None);
+			Append(Keys::Method, authentication_type::None);
 		}
 
 

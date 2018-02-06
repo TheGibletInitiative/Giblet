@@ -15,13 +15,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		enum class TypingStatus
-		{
-			Idle = 0,
-			Active = 1
-		};
-
-		using status_type = TypingStatus;
+		using status_type = detail::TypingStatus;
 
 
 	public:
@@ -30,16 +24,16 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			session_type& session,
 			string_view_type clientId,
 			string_view_type contactId,
-			status_type action)
+			status_type status)
 		{
-			static const string_type typingOperation("TYPING");
+			static const string_view_type typingOperation("TYPING");
 
 			Initialize(session, ServiceId, AttributeId);
 			Append(Keys::Operation, typingOperation);
 			Append(Keys::ClientId, clientId);	
 			Append(Keys::ContactId, contactId);	
-			Append(Keys::Status, " ");		//	This is always blank on 5.6
-			Append(Keys::Action, action);		
+			Append(Keys::StatusOld, " ");		//	This is always blank on 5.6
+			Append(Keys::Status, status);		
 		}
 
 
@@ -48,10 +42,10 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		struct Keys
 		{
 			static const key_type Operation = 49;	//	What to do : TYPING, WEBCAMINVITE
-			static const key_type ClientId = 5;		//	From
-			static const key_type ContactId = 4;	//	To
-			static const key_type Status = 14;		//	TODO: MAYBE Create enum. 0 = typing, -1 = idle, single space on 5.6
-			static const key_type Action = 13;
+			static const key_type ClientId = 5;
+			static const key_type ContactId = 4;
+			static const key_type StatusOld = 14;
+			static const key_type Status = 13;
 		};
 
 		static const serviceid_type ServiceId = 75;

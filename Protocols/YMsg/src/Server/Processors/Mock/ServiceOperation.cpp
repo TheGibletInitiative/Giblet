@@ -19,7 +19,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		//	FIXME: Make sure attribute is 22/0x16
 		if (payload.operation == typingOperation)
 		{
-			const auto action(static_cast<Builders::TypingNotification::status_type>(std::stoi(std::string(payload.action))));
+			const auto action(to_enum<Builders::TypingNotification::status_type>(payload.action));
 
 			Builders::TypingNotification builder;
 			builder.Build(session, payload.contactId, payload.clientId, action);

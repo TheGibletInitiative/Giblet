@@ -17,7 +17,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		loggedIn_(false),
 		sessionId_(0),
 		protocolVersion_(0),
-		availability_(Availability::Offline)
+		availability_(availability_type::Offline)
 	{}
 
 

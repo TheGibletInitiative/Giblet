@@ -4,33 +4,16 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #pragma once
+#include <Protocols/YMsg/Types.h>
 #include <vector>
 #include <string>
 #include <string_view>
 #include <map>
-#include <winsock2.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	enum class Availability
-	{
-		Offline =		 -1,
-		Available =		  0,
-		Brb =			  1,
-		Busy =			  2,
-		Notathome =		  3,
-		NotAtDesk =		  4,
-		NotInOffice =	  5,
-		OnPhone =		  6,
-		OnVacation =	  7,
-		OutToLunch =	  8,
-		SteppedOut =	  9,
-		Invisible =		 12,
-		Custom =		 99,
-		Idle =			999,
-	};
 
 	struct ContactInfo
 	{
@@ -42,11 +25,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		using string_type = std::string;
 		using string_view_type = std::string_view;
+		using availability_type = detail::Availability;
+		using client_type = detail::ClientType;
 
 		explicit ContactInfo(
 			State state,
 			string_view_type id,
-			Availability availability = Availability::Offline,
+			availability_type availability = availability_type::Offline,
 			bool isBusy = false,
 			string_view_type customMessage = string_view_type())
 			:
@@ -63,7 +48,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			//	TODO: Need to figure out what the possible values are and stuff it in an enum
 			string_view_type idleUnknown,
 			//	FIXME: Idle unknown assume idle state!
-			Availability availability = Availability::Offline,
+			availability_type availability = availability_type::Offline,
 			//	FIXME: Idle could assume busy/not available state!
 			bool isBusy = false,
 			string_view_type customMessage = string_view_type())
@@ -76,12 +61,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			customMessage(customMessage)
 		{}
 
-		string_type		id;
-		Availability	availability;
-		bool			isBusy;
-		string_type		customMessage;
-		string_type		idleUnknown;
-		State			state;
+		string_type			id;
+		availability_type	availability;
+		bool				isBusy;
+		string_type			customMessage;
+		string_type			idleUnknown;
+		State				state;
+		bool				isInChat;
 	};
 
 
@@ -98,6 +84,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using protocolversion_type = uint16_t;
 		using const_profile_iterator = std::vector<string_type>::const_iterator;
 		using const_blockeduser_iterator = std::vector<string_type>::const_iterator;
+		using availability_type = detail::Availability;
 
 		using contact_container_type = std::vector<contact_info_type>;
 		using const_contact_iterator = contact_container_type::const_iterator;
@@ -118,7 +105,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			protocolVersion_ = version;
 		}
 
-		void BeginSession(sessionid_type id, string_view_type clientId, Availability initialAvailability)
+		void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability)
 		{
 			sessionId_ = id;
 			availability_ = initialAvailability;
@@ -179,7 +166,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 
-		void SetAvailability(Availability availability)
+		void SetAvailability(availability_type availability)
 		{
 			availability_ = availability;
 		}
@@ -251,7 +238,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		contact_container_type			contacts_;			//	TODO: Move to mocked address book
 		groupedcontact_container_type	groupedContacts_;	//	TODO: Move to mocked address book
 		std::vector<string_type>		blockedUsers_;		//	TODO: Move to mocked blocked contact manager
-		Availability					availability_;
+		availability_type				availability_;
 	};
 
 }}}

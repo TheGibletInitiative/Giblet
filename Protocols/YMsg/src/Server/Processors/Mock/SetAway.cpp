@@ -15,9 +15,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		const auto onlineStatus(static_cast<Availability>(std::stol(payload.statusId.data(), nullptr, 10)));
+		const auto onlineStatus(to_enum<availability_type>(payload.statusId));
 
-		if (onlineStatus == Availability::Invisible)
+		if (onlineStatus == availability_type::Invisible)
 		{
 			session.SetAvailability(onlineStatus);
 

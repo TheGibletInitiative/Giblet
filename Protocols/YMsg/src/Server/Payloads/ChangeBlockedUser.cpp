@@ -17,8 +17,8 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			clientId = value;
 			break;
 
-		case Keys::BlockUserId:
-			blockUserId = value;
+		case Keys::ContactId:
+			contactId = value;
 			break;
 
 		case Keys::Mode:

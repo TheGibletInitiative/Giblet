@@ -40,10 +40,12 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 	public:
 
+		//	NOTE: The meaning of the status and action fields are defined by the value in operation.
+		//	All other fields (except federation id in 6.0+) should be present.
 		string_view_type	operation;
 		string_view_type	clientId;
-		string_view_type	status;		//	TODO: Use enum.
-		string_view_type	action;		//	TODO: Use enum.
+		string_view_type	status;		//	TODO: Make variant<enum, enum>.
+		string_view_type	action;		//	TODO: Make variant<enum, enum>.
 		string_view_type	contactId;
 	};
 
