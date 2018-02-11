@@ -14,14 +14,23 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		virtual void Build(session_type& session);
+		using session_type = SessionContext;
+
+		virtual void Build(connection_type& connection, session_type& session);
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			const std::map<string_type, std::vector<string_type>>& contactList,
 			const std::vector<string_view_type>& profileNames,
 			const std::vector<string_view_type>& ignoreList);
+
+		virtual void Build(
+			connection_type& connection,
+			string_view_type clientId,
+			const ProfileManager& profileManager,
+			const ContactManager& contactManager,
+			const BlockedContactManager& blockedContactManager);
 
 
 	protected:

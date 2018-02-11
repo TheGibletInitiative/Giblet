@@ -17,13 +17,13 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type message,		//	TODO: message, messageEncoding, and timestamp should be delivered as a group.
 			time_t timestamp)				//	TODO: ^^^
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ContactId, contactId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Message, message);

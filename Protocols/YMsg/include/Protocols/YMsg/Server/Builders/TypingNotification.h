@@ -21,14 +21,14 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			status_type status)
 		{
 			static const string_view_type typingOperation("TYPING");
 
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::Operation, typingOperation);
 			Append(Keys::ClientId, clientId);	
 			Append(Keys::ContactId, contactId);	

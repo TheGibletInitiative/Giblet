@@ -94,11 +94,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 	public:
 
-		virtual void Build(session_type& session, const ContactInfo& contact)
+		virtual void Build(connection_type& connection, const ContactInfo& contact)
 		{
 			//	NOTE: Some odd behavior was observed when sending multiple contacts. Need to verify to see
 			//	if it wasn't something else being worked on at the time that caused the issue.
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			//	NOTE: Messenger 5.6 accepts the update if this field is omitted. If the field is set
 			//	to "0" the update is ignored. It has been observed as "1" so we include it.
 			Append(Keys::Count, 1);	
@@ -129,11 +129,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			const std::vector<ContactInfo>& contacts)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId1, clientId);
 			Append(Keys::ClientId2, clientId);
 			AppendContacts(contacts);

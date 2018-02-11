@@ -18,13 +18,13 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type group,
 			status_type status)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Status, status);
 			Append(Keys::ContactId, contactId);

@@ -23,9 +23,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void Builder::Initialize(session_type& session, serviceid_type serviceId, attribute_type attributeId)
+	void Builder::Initialize(connection_type& connection, serviceid_type serviceId, attribute_type attributeId)
 	{
-		return Initialize(header_type(session.GetSessionId(), session.GetProtocolVersion(), serviceId, attributeId));
+		return Initialize(header_type(connection.GetSessionId(), connection.GetProtocolVersion(), serviceId, attributeId));
 	}
 
 
@@ -65,7 +65,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void Builder::Send(session_type& session)
+	void Builder::Send(connection_type& connection)
 	{
 		//	Validate buffer size does not exceed 64k
 		if (buffer_.size() >= PaxPayloadSize)
@@ -74,7 +74,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 		reinterpret_cast<RawHeader*>(buffer_.data())->payloadSize = htons(buffer_.size() - sizeof(RawHeader));
-		session.SendToClient(buffer_.data(), buffer_.size());
+		connection.SendToClient(buffer_.data(), buffer_.size());
 		
 		buffer_ = buffer_type();
 	}

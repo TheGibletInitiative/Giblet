@@ -17,13 +17,13 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		using encoding_type = detail::TextEncoding;
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			string_view_type message,
 			encoding_type encoding)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::Unknown31, "6");
 			Append(Keys::Unknown32, "6");
 			Append(Keys::ContactId, contactId);	

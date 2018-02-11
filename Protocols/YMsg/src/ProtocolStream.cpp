@@ -10,7 +10,7 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	ProtocolStream::ProtocolStream(std::shared_ptr<IPacketDispatcher> dispatcher)
+	ProtocolStream::ProtocolStream(std::shared_ptr<dispatcher_type> dispatcher)
 		: dispatcher_(dispatcher)
 	{}
 
@@ -49,7 +49,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 		const auto currentSize = data_.size();
 		DWORD incomingSize = 0;
-		if (SOCKET_ERROR == ioctlsocket(session.GetSocket(), FIONREAD, (DWORD*)&incomingSize))
+		if (SOCKET_ERROR == ioctlsocket(session.GetConnection().GetSocket(), FIONREAD, (DWORD*)&incomingSize))
 		{
 			std::cerr << "Unable to retrieve number of bytes available on socket\n";
 			return false;
@@ -61,7 +61,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 		data_.resize(currentSize + incomingSize);
-		if (recv(session.GetSocket(), &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
+		if (recv(session.GetConnection().GetSocket(), &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
 		{
 			data_.resize(currentSize);
 			std::cerr << "Unable to read " << incomingSize << " bytes from socket\n";

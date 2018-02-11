@@ -17,7 +17,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	struct IPacketDispatcher
 	{
 		using buffer_type = PacketParser::buffer_type;
-		using session_type = YMSGSession;
+		using session_type = SessionContext;
 
 		virtual ~IPacketDispatcher() = default;
 
@@ -35,12 +35,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	public:
 
 		using buffer_type = std::vector<char>;
-		using session_type = IPacketDispatcher::session_type;
+		using dispatcher_type = IPacketDispatcher;
+		using session_type = dispatcher_type::session_type;
 
 
 	public:
 
-		explicit ProtocolStream(std::shared_ptr<IPacketDispatcher> dispatcher);
+		explicit ProtocolStream(std::shared_ptr<dispatcher_type> dispatcher);
 
 		virtual ~ProtocolStream() = default;
 
@@ -60,7 +61,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		std::shared_ptr<IPacketDispatcher>	dispatcher_;
+		std::shared_ptr<dispatcher_type>	dispatcher_;
 		buffer_type							data_;
 	};
 

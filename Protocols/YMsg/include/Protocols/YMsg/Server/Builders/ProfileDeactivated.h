@@ -14,9 +14,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		virtual void Build(session_type& session, string_view_type profileId)
+		virtual void Build(connection_type& connection, string_view_type profileId)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ProfileId, profileId);	
 		}
 

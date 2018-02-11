@@ -16,18 +16,18 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		using authentication_type = detail::AuthenticationMethod;
 
-		virtual void Build(session_type& session, string_view_type clientId, string_view_type challenge)
+		virtual void Build(connection_type& connection, string_view_type clientId, string_view_type challenge)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Challenger, challenge);
 			Append(Keys::Method, authentication_type::InApp);
 		}
 
 
-		virtual void Build(session_type& session, string_view_type clientId)
+		virtual void Build(connection_type& connection, string_view_type clientId)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Method, authentication_type::None);
 		}

@@ -21,13 +21,13 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	protected:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			status_type status,
 			reason_type reason = reason_type::None)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::ContactId, contactId);
 			Append(Keys::Status, status);
@@ -65,9 +65,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		virtual void Build(session_type& session, string_view_type clientId, string_view_type contactId)
+		virtual void Build(connection_type& connection, string_view_type clientId, string_view_type contactId)
 		{
-			ContactBlockedOrUnblocked::Build(session, clientId, contactId, status_type::Blocked);
+			ContactBlockedOrUnblocked::Build(connection, clientId, contactId, status_type::Blocked);
 		}
 	};
 
@@ -78,9 +78,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		using ContactBlockedOrUnblocked::Build;
 
-		virtual void Build(session_type& session, string_view_type clientId, string_view_type contactId)
+		virtual void Build(connection_type& connection, string_view_type clientId, string_view_type contactId)
 		{
-			ContactBlockedOrUnblocked::Build(session, clientId, contactId, status_type::Unblocked);
+			ContactBlockedOrUnblocked::Build(connection, clientId, contactId, status_type::Unblocked);
 		}
 	};
 
@@ -93,7 +93,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		using ContactBlockedOrUnblocked::Build;
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type contactId,
 			reason_type reason)
@@ -104,7 +104,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			}
 
 			ContactBlockedOrUnblocked::Build(
-				session,
+				connection,
 				clientId,
 				contactId,
 				status_type::Blocked,	//	FIXME: Verify this is correct. Should be Action::Error(3) I think!

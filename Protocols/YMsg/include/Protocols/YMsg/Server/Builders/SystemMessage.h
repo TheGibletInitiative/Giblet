@@ -14,11 +14,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		virtual void Build(session_type& session, string_view_type message, time_t timestamp)
+		virtual void Build(connection_type& connection, string_view_type message, time_t timestamp)
 		{
 			//	During testing the message window was able to disable a utf8 encoded string without providing
 			//	the encoding key pair (see private message - service 6). 
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::Message, message);	
 			Append(Keys::Timestamp, timestamp);	
 		}

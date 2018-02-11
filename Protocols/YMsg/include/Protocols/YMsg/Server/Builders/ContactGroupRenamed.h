@@ -15,12 +15,12 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type clientId,
 			string_view_type oldGroupName,
 			string_view_type newGroupName)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::ClientId, clientId);
 			Append(Keys::Unknown66, "0");	//	TODO: Verify what these values do. Everywhere key 66 shows up appears to be ralted to online status.
 			Append(Keys::NewGroupName, newGroupName);

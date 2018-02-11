@@ -9,24 +9,48 @@
 namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { namespace Builders
 {
 
-	void ClientProfile::Build(session_type& session)
+	void ClientProfile::Build(connection_type& connection, session_type& session)
 	{
-		const std::vector<string_view_type> profileNames(session.profiles_begin(), session.profiles_end());
-		const std::vector<string_view_type> ignoreList(session.blockedusers_begin(), session.blockedusers_end());
+		const auto& profileManager(session.GetProfileManager());
+		const std::vector<string_view_type> profileNames(profileManager.begin(), profileManager.end());
+		const auto& blockedContactManager(session.GetBlockedContactManager());
+		const std::vector<string_view_type> ignoreList(blockedContactManager.begin(), blockedContactManager.end());
 
 		//	TODO: This could be better!
 		std::map<string_type, std::vector<string_type>> contactList;
-		for (auto group = session.grouped_contacts_begin(); group != session.grouped_contacts_end(); ++group)
+		const auto& contactManager(session.GetContactManager());
+		for (auto group = contactManager.grouped_contacts_begin(); group != contactManager.grouped_contacts_end(); ++group)
 		{
 			contactList[group->first] = group->second;
 		}
 
-		Build(session, session.GetClientId(), contactList, profileNames, ignoreList);
+		Build(connection, session.GetClientId(), contactList, profileNames, ignoreList);
 	}
 
 
 	void ClientProfile::Build(
-		session_type& session,
+		connection_type& connection,
+		string_view_type clientId,
+		const ProfileManager& profileManager,
+		const ContactManager& contactManager,
+		const BlockedContactManager& blockedContactManager)
+	{
+		const std::vector<string_view_type> profileNames(profileManager.begin(), profileManager.end());
+		const std::vector<string_view_type> ignoreList(blockedContactManager.begin(), blockedContactManager.end());
+
+		//	TODO: This could be better!
+		std::map<string_type, std::vector<string_type>> contactList;
+		for (auto group = contactManager.grouped_contacts_begin(); group != contactManager.grouped_contacts_end(); ++group)
+		{
+			contactList[group->first] = group->second;
+		}
+
+		Build(connection, clientId, contactList, profileNames, ignoreList);
+	}
+
+
+	void ClientProfile::Build(
+		connection_type& connection,
 		string_view_type clientId,
 		const std::map<string_type, std::vector<string_type>>& contactList,
 		const std::vector<string_view_type>& profileNames,
@@ -83,7 +107,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		//	TODO: Probably won't need the cookies. See about removing them
 		//	TODO: Cross check these with older versions of libyahoo and libyahoo2
 		//	TODO: verify attribute
-		Initialize(session, ServiceId, AttributeId);
+		Initialize(connection, ServiceId, AttributeId);
 		Append(Keys::ContactList, contactListString);
 		Append(Keys::BlockedList, ignoreListString);
 		Append(Keys::ClientProfiles, profileNamesString);

@@ -25,7 +25,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using string_type = std::string;			//	should be a UTF8 string
 		using string_view_type = std::string_view;	//	should be a UTF8 string
 		using key_type = int;
-		using session_type = YMSGSession;
+		using connection_type = ClientConnection;
 
 		static const size_t DefaultMinBufferReserver = 512;
 		static const size_t PaxPayloadSize = 0x10000;
@@ -38,7 +38,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual ~Builder() = default;
 
 		virtual void Initialize(const header_type& header);
-		virtual void Initialize(session_type& session, serviceid_type serviceId, attribute_type attributeId);
+		virtual void Initialize(connection_type& connection, serviceid_type serviceId, attribute_type attributeId);
 		virtual void Append(int key, const string_type& value);
 		virtual void Append(int key, const string_view_type& value);
 		virtual void Append(int key, const char* value);
@@ -55,7 +55,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			Append(key, static_cast<std::underlying_type<Type_>::type>(value));
 		}
 
-		virtual void Send(session_type& session);
+		virtual void Send(connection_type& connection);
 
 
 	private:

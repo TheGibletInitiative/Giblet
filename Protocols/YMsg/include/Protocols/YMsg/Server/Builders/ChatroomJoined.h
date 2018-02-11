@@ -16,7 +16,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type category,
 			string_view_type roomName,
 			string_view_type topic,
@@ -24,7 +24,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			string_view_type otherCookie,
 			const std::vector<string_view_type>& participants)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::RoomName, roomName);
 			Append(Keys::Topic, topic);
 			Append(Keys::Category, category);

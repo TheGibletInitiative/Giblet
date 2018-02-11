@@ -14,20 +14,20 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 	public:
 
-		virtual void Build(session_type& session, unsigned int count)
+		virtual void Build(connection_type& connection, unsigned int count)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::Count, count);	
 		}
 
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
 			string_view_type address,
 			string_view_type name,
 			string_view_type subject)
 		{
-			Initialize(session, ServiceId, AttributeId);
+			Initialize(connection, ServiceId, AttributeId);
 			Append(Keys::Count, 1);	
 			Append(Keys::Name, name);	
 			Append(Keys::Address, address);	

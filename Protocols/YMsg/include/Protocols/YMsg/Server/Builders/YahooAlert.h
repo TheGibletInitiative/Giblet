@@ -15,15 +15,16 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	public:
 
 		virtual void Build(
-			session_type& session,
+			connection_type& connection,
+			string_view_type clientId,
 			string_view_type publisher,
 			string_view_type url,
 			string_view_type articleMeta,
 			string_view_type title,
 			string_view_type content)
 		{
-			Initialize(session, ServiceId, AttributeId);
-			Append(Keys::ClientId, session.GetClientId());	
+			Initialize(connection, ServiceId, AttributeId);
+			Append(Keys::ClientId, clientId);	
 			Append(Keys::Url, url);		
 			Append(Keys::PublisherId, publisher);
 			Append(Keys::ArticleMeta, articleMeta);

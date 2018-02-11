@@ -27,7 +27,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using string_type = typename payload_type::string_type;
 		using string_view_type = typename payload_type::string_view_type;
 		using serviceid_type = typename payload_type::serviceid_type;
-		using session_type = YMSGSession;
+		using session_type = SessionContext;
 
 		virtual ~PayloadProcessor() = default;
 	};
@@ -40,7 +40,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using key_type = parser_type::key_type;
 		using string_type = parser_type::string_type;
 		using string_view_type = parser_type::string_view_type;
-		using session_type = YMSGSession;
+		using session_type = SessionContext;
 
 		virtual ~IPacketProcessor() = default;
 
