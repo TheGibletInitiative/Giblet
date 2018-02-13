@@ -8,9 +8,11 @@
 #include <Protocols/YMsg/ClientConnection.h>
 #include <Protocols/YMsg/ContactManager.h>
 #include <Protocols/YMsg/PresenceManager.h>
+#include <Protocols/YMsg/PresenceManagementLink.h>
+#include <Protocols/YMsg/PresenceEvents.h>
 #include <Protocols/YMsg/ProfileManager.h>
+#include <Protocols/YMsg/ContactManagementLink.h>
 
-#include <Protocols/YMsg/MockPresenceManager.h>
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
@@ -30,25 +32,32 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			std::shared_ptr<ClientConnection> connection,
 			std::shared_ptr<BlockedContactManager> blockedContactManager,
 			std::shared_ptr<ProfileManager> profileManager,
-			std::shared_ptr<ContactManager> contactManager);
+			std::shared_ptr<ContactManager> contactManager,
+			std::shared_ptr<ContactManagementLink> contactManagementLink,
+			std::shared_ptr<PresenceManagementLink>	presenceManagementLink);
 
 		SessionContext(const SessionContext&) = delete;
 
+		virtual ~SessionContext() = default;
 
 		//	FIXME: Limit usage of this.
-		ClientConnection& GetConnection();
+		virtual ClientConnection& GetConnection();
 
-		ContactManager& GetContactManager();
-		BlockedContactManager& GetBlockedContactManager();
-		ProfileManager& GetProfileManager();
-		PresenceManager& GetPresenceManager();
+		virtual ContactManager& GetContacts();
+		virtual ContactManagementLink& ContactManagement();
+		virtual BlockedContactManager& GetBlockedContactManager();
+		virtual ProfileManager& GetProfileManager();
+		virtual PresenceManagementLink& PresenceManagement();
 
 
-		void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability);
+		virtual void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability);
 
-		string_view_type GetClientId() const;
+		virtual string_view_type GetClientId() const;
 
-		void RequestClientProfile();
+		virtual void RequestAuthChallenge(string_view_type clientId);
+		virtual void RequestClientProfile();
+
+		virtual void OnAuthenticationComplete(string_view_type clientId);
 
 
 	protected:
@@ -56,8 +65,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		const std::shared_ptr<ClientConnection>			connection_;
 		const std::shared_ptr<BlockedContactManager>	blockedContactManager_;
 		const std::shared_ptr<ProfileManager>			profileManager_;
+		const std::shared_ptr<ContactManagementLink>	contactManagementLink_;
 		const std::shared_ptr<ContactManager>			contactManager_;
-		MockPresenceManager		presenceManager_;
+		const std::shared_ptr<PresenceManagementLink>	presenceManagementLink_;
 		bool					loggedIn_;
 		string_type				clientId_;
 	};

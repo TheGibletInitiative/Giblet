@@ -11,15 +11,7 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	PresenceManager::PresenceManager(std::shared_ptr<ClientConnection> connection)
-		:
-		connection_(connection),
-		availability_(availability_type::Offline),
-		busy_(false)
-	{}
-
-
-	void PresenceManager::BeginSession(availability_type initialAvailability)
+	void PresenceProperties::BeginSession(availability_type initialAvailability)
 	{
 		availability_ = initialAvailability;
 		busy_ = false;
@@ -27,9 +19,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-
-
-	void PresenceManager::SetAvailable()
+	void PresenceProperties::SetAvailable()
 	{
 		availability_ = availability_type::Available;
 		busy_ = false;
@@ -37,7 +27,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void PresenceManager::SetCustomStatus(string_view_type message, bool isBusy)
+	void PresenceProperties::SetCustomStatus(string_view_type message, bool isBusy)
 	{
 		availability_ = availability_type::Custom;
 		busy_ = isBusy;
@@ -45,15 +35,17 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void PresenceManager::SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown)
+	void PresenceProperties::SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown)
 	{
+		((void)idleUnknown);
+
 		availability_ = availability_type::Idle;
 		busy_ = isBusy;
 		message_ = message;
 	}
 
 
-	void PresenceManager::SetAway(availability_type availability, bool isBusy)
+	void PresenceProperties::SetAway(availability_type availability, bool isBusy)
 	{
 		availability_ = availability;
 		busy_ = isBusy;
@@ -61,7 +53,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void PresenceManager::SetInvisible()
+	void PresenceProperties::SetInvisible()
 	{
 		availability_ = availability_type::Invisible;
 		busy_ = false;	//	FIXME: Not sure we should change this!

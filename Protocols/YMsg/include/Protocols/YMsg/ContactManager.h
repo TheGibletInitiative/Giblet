@@ -31,13 +31,15 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using client_type = detail::ClientType;
 
 		explicit ContactInfo(
-			State state,
 			string_view_type id,
+			string_view_type group,
+			State state,
 			availability_type availability = availability_type::Offline,
 			bool isBusy = false,
 			string_view_type customMessage = string_view_type())
 			:
 			id(id),
+			group(group),
 			state(state),
 			availability(availability),
 			isBusy(isBusy),
@@ -45,8 +47,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		{}
 
 		ContactInfo(
-			State state,
 			string_view_type id,
+			string_view_type group,
+			State state,
 			//	TODO: Need to figure out what the possible values are and stuff it in an enum
 			string_view_type idleUnknown,
 			//	FIXME: Idle unknown assume idle state!
@@ -56,6 +59,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			string_view_type customMessage = string_view_type())
 			:
 			id(id),
+			group(group),
 			availability(availability),
 			state(state),
 			idleUnknown(idleUnknown),
@@ -64,6 +68,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		{}
 
 		string_type			id;
+		string_type			group;
 		availability_type	availability;
 		bool				isBusy;
 		string_type			customMessage;
@@ -73,7 +78,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	};
 
 
-
 	class ContactManager
 	{
 	public:
@@ -81,11 +85,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using string_type = std::string;			//	should be a UTF8 string
 		using string_view_type = std::string_view;	//	should be a UTF8 string
 		using contact_info_type = ContactInfo;
-		using container_type = std::vector<contact_info_type>;
+		using container_type = std::map<string_type, contact_info_type>;
 		using const_iterator = container_type::const_iterator;
 		using iterator = container_type::iterator;
-		using grouped_container_type = std::map<string_type, std::vector<string_type>>;
-		using grouped_const_iterator = grouped_container_type::const_iterator;
 		using encoding_type = detail::TextEncoding;
 		using addrequeststatus_type = detail::AddContactRequestResultStatus;
 		using availability_type = detail::Availability;
@@ -93,65 +95,34 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	public:
 
-		explicit ContactManager(
-			std::shared_ptr<ClientConnection> connection,
-			std::shared_ptr<BlockedContactManager> blockedContactManager,
-			std::shared_ptr<ProfileManager> profileManager);
-
+		ContactManager() = default;
 		ContactManager(const ContactManager&) = delete;
 
-		virtual void LoadContact(string_view_type group, const contact_info_type& contact);
+		virtual void LoadContact(const contact_info_type& contact);
 
 		const_iterator begin() const;
 		const_iterator end() const;
 
-		grouped_const_iterator grouped_contacts_begin() const;
-		grouped_const_iterator grouped_contacts_end() const;
-
 		//
 		virtual bool IsContact(string_view_type contactId) const;
 
-		//	Triggered by client
-		virtual void DenyRequest(string_view_type clientId, string_view_type contactId, string_view_type message) = 0;
-		virtual void AddContact(string_view_type clientId, string_view_type contactId, string_view_type group, string_view_type message) = 0;
-		virtual void RemoveContact(string_view_type clientId, string_view_type contactId, string_view_type group) = 0;
-		virtual void RenameGroup(string_type currentName, string_type newName) = 0;
+		virtual void AddPendingContact(string_view_type contactId, string_view_type group);
+		virtual void SetContactAdded(string_view_type contactId, string_view_type group);
+		virtual void RemoveContact(string_view_type contactId, string_view_type group);
+		virtual void RenameGroup(string_type currentName, string_type newName);
 
-
-	public:
-
-		//	Triggered by server
-		virtual void OnAddRequestDenied(string_view_type clientId, string_view_type contactId, string_view_type message);
-		virtual void OnAddContactRequest(string_view_type clientId, string_view_type contactId, string_view_type message, time_t timestamp);
-		virtual void OnRemoveContactFailed(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnAddRequestPending(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnEmptyGroup(string_view_type clientId, string_view_type contactId);
-		virtual void OnContactIsIneligible(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnContactNoExist(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnDuplicateContact(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnContactAdded(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnContactRemoved(string_view_type clientId, string_view_type contactId, string_view_type group);
-		virtual void OnGroupRenameFailed(string_view_type currentName, string_view_type newName);
-		virtual void OnGroupRenamed(string_type currentName, string_type newName);
-
-		virtual void OnContactAvailable(string_view_type contactId);
-		virtual void OnContactIdle(string_view_type contactId, string_view_type idleUnknown, string_view_type message, bool isBusy);
-		virtual void OnContactAway(string_view_type contactId, availability_type availability, bool isBusy);
-		virtual void OnContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy);
-		virtual void OnContactOffline(string_view_type contactId);
+		virtual const contact_info_type* SetContactAvailable(string_view_type contactId);
+		virtual const contact_info_type* SetContactIdle(string_view_type contactId, string_view_type idleUnknown, string_view_type message, bool isBusy);
+		virtual const contact_info_type* SetContactAway(string_view_type contactId, availability_type availability, bool isBusy);
+		virtual const contact_info_type* SetContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy);
+		virtual const contact_info_type* SetContactOffline(string_view_type contactId);
 
 	protected:
-
-		virtual void RefreshProfile() const;
 
 		const_iterator FindContact(string_view_type contactId) const;
 		iterator FindContact(string_view_type contactId);
 
-		const std::shared_ptr<ClientConnection>			connection_;
-		const std::shared_ptr<BlockedContactManager>	blockedContactManager_;
-		const std::shared_ptr<ProfileManager>			profileManager_;
 		container_type			contacts_;			//	TODO: Move to mocked address book
-		grouped_container_type	groupedContacts_;	//	TODO: Move to mocked address book
 	};
 
 }}}

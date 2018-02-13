@@ -12,19 +12,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	void ClientProfile::Build(connection_type& connection, session_type& session)
 	{
 		const auto& profileManager(session.GetProfileManager());
-		const std::vector<string_view_type> profileNames(profileManager.begin(), profileManager.end());
 		const auto& blockedContactManager(session.GetBlockedContactManager());
-		const std::vector<string_view_type> ignoreList(blockedContactManager.begin(), blockedContactManager.end());
 
-		//	TODO: This could be better!
-		std::map<string_type, std::vector<string_type>> contactList;
-		const auto& contactManager(session.GetContactManager());
-		for (auto group = contactManager.grouped_contacts_begin(); group != contactManager.grouped_contacts_end(); ++group)
-		{
-			contactList[group->first] = group->second;
-		}
-
-		Build(connection, session.GetClientId(), contactList, profileNames, ignoreList);
+		Build(connection, session.GetClientId(), profileManager, session.GetContacts(), blockedContactManager);
 	}
 
 
@@ -40,9 +30,9 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		//	TODO: This could be better!
 		std::map<string_type, std::vector<string_type>> contactList;
-		for (auto group = contactManager.grouped_contacts_begin(); group != contactManager.grouped_contacts_end(); ++group)
+		for (auto contact : contactManager)
 		{
-			contactList[group->first] = group->second;
+			contactList[contact.second.group].push_back(contact.second.id);
 		}
 
 		Build(connection, clientId, contactList, profileNames, ignoreList);

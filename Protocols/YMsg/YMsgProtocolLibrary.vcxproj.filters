@@ -131,9 +131,6 @@
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactOffline.h">
       <Filter>Header Files\Server\Builders</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\Ymsg\YMSGSession.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ContactGroupRenamed.h">
       <Filter>Header Files\Server\Builders</Filter>
     </ClInclude>
@@ -224,12 +221,6 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAway.h">
       <Filter>Header Files\Server\Processors</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockContactManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockPresenceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\MockProfileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -262,6 +253,30 @@
     </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\ServiceOperation.h">
       <Filter>Header Files\Server\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\MockSessionContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\ContactManagementEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\ContactManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\PresenceEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\PresenceManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\MockContactManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\MockPresenceManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\SessionContext.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,9 +327,6 @@
     </ClCompile>
     <ClCompile Include="src\Server\Payloads\RemoveContact.cpp">
       <Filter>Source Files\Server\Payloads</Filter>
-    </ClCompile>
-    <ClCompile Include="src\YMSGSession.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SessionGateway.cpp">
       <Filter>Source Files</Filter>
@@ -382,12 +394,6 @@
     <ClCompile Include="src\Server\Processors\SetAway.cpp">
       <Filter>Source Files\Server\Processors</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockContactManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MockPresenceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MockProfileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -420,6 +426,27 @@
     </ClCompile>
     <ClCompile Include="src\Server\Processors\ServiceOperation.cpp">
       <Filter>Source Files\Server\Processors</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MockSessionContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BasicContactManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ContactManagementEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PresenceEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MockContactManagementLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SessionContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MockPresenceManagementLink.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

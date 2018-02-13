@@ -13,7 +13,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		session.GetContactManager().DenyRequest(payload.clientId, payload.contactId, payload.message);
+		session.ContactManagement().DenyRequest(payload.clientId, payload.contactId, payload.message);
 	}
 
 }}}}}

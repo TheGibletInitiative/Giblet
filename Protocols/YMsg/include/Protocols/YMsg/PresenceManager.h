@@ -4,14 +4,13 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #pragma once
-#include <Protocols/YMsg/ProfileManager.h>
-#include <memory>
+#include <Protocols/YMsg/Types.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	class PresenceManager
+	class PresenceProperties
 	{
 	public:
 
@@ -22,10 +21,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	public:
 
-		explicit PresenceManager(std::shared_ptr<ClientConnection> connection);
-
-		PresenceManager(const PresenceManager&) = delete;
-		virtual ~PresenceManager() = default;
+		PresenceProperties() = default;
+		PresenceProperties(const PresenceProperties&) = delete;
+		virtual ~PresenceProperties() = default;
 
 		virtual void BeginSession(availability_type initialAvailability);
 
@@ -37,9 +35,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		const std::shared_ptr<ClientConnection>	connection_;
-		availability_type	availability_;
-		bool				busy_;
+		availability_type	availability_ = availability_type::Offline;
+		bool				busy_ = false;
 		string_type			message_;
 	};
 

@@ -4,24 +4,27 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #pragma once
+#include <Protocols/YMsg/PresenceManagementLink.h>
 #include <Protocols/YMsg/PresenceManager.h>
+#include <Protocols/YMsg/PresenceEvents.h>
 #include <Protocols/YMsg/ContactManager.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	class MockPresenceManager : public PresenceManager
+	class MockPresenceManagementLink : public PresenceManagementLink
 	{
 	public:
 
-		using PresenceManager::PresenceManager;
+		using PresenceManagementLink::PresenceManagementLink;
 
-		MockPresenceManager(
-			std::shared_ptr<ClientConnection> connection,
+		MockPresenceManagementLink(
 			std::shared_ptr<ProfileManager> profileManager,
-			std::shared_ptr<ContactManager>	contactManager);
+			std::shared_ptr<ContactManager> contactManager,
+			std::shared_ptr<PresenceEvents> presenceEvents);
 
+		void BeginSession(availability_type initialAvailability) override;
 
 		void SetAvailable() override;
 		void SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown) override;
@@ -33,6 +36,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		const std::shared_ptr<ProfileManager>	profileManager_;
 		const std::shared_ptr<ContactManager>	contactManager_;
+		const std::shared_ptr<PresenceEvents>	presenceEvents_;
+		PresenceProperties						properties_;
 	};
 
 }}}

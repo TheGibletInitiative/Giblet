@@ -155,15 +155,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\BasicContactManager.cpp" />
     <ClCompile Include="src\BlockedContactManager.cpp" />
     <ClCompile Include="src\Builder.cpp" />
     <ClCompile Include="src\ClientConnection.cpp" />
+    <ClCompile Include="src\ContactManagementEvents.cpp" />
     <ClCompile Include="src\ContactManager.cpp" />
     <ClCompile Include="src\MockBlockedContactManager.cpp" />
-    <ClCompile Include="src\MockContactManager.cpp" />
-    <ClCompile Include="src\MockPresenceManager.cpp" />
+    <ClCompile Include="src\MockContactManagementLink.cpp" />
+    <ClCompile Include="src\MockPresenceManagementLink.cpp" />
     <ClCompile Include="src\MockProfileManager.cpp" />
+    <ClCompile Include="src\MockSessionContext.cpp" />
     <ClCompile Include="src\Parser.cpp" />
+    <ClCompile Include="src\PresenceEvents.cpp" />
     <ClCompile Include="src\PresenceManager.cpp" />
     <ClCompile Include="src\ProfileManager.cpp" />
     <ClCompile Include="src\Server\Header.cpp" />
@@ -189,18 +193,23 @@
     <ClCompile Include="src\Server\Processors\ServiceOperation.cpp" />
     <ClCompile Include="src\Server\Processors\SetAvailable.cpp" />
     <ClCompile Include="src\Server\Processors\SetAway.cpp" />
+    <ClCompile Include="src\SessionContext.cpp" />
     <ClCompile Include="src\SessionGateway.cpp" />
-    <ClCompile Include="src\YMSGSession.cpp" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\Builder.h" />
     <ClInclude Include="include\Protocols\YMsg\ClientConnection.h" />
+    <ClInclude Include="include\Protocols\YMsg\ContactManagementEvents.h" />
+    <ClInclude Include="include\Protocols\YMsg\ContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\Header.h" />
     <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManager.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockContactManager.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockPresenceManager.h" />
+    <ClInclude Include="include\Protocols\YMsg\MockContactManagementLink.h" />
+    <ClInclude Include="include\Protocols\YMsg\MockPresenceManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\MockProfileManager.h" />
+    <ClInclude Include="include\Protocols\YMsg\MockSessionContext.h" />
     <ClInclude Include="include\Protocols\YMsg\Parser.h" />
+    <ClInclude Include="include\Protocols\YMsg\PresenceEvents.h" />
+    <ClInclude Include="include\Protocols\YMsg\PresenceManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\PresenceManager.h" />
     <ClInclude Include="include\Protocols\YMsg\Processor.h" />
     <ClInclude Include="include\Protocols\YMsg\ProfileManager.h" />
@@ -231,9 +240,9 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\ServiceOperation.h" />
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAvailable.h" />
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAway.h" />
+    <ClInclude Include="include\Protocols\YMsg\SessionContext.h" />
     <ClInclude Include="include\Protocols\Ymsg\SessionGateway.h" />
     <ClInclude Include="include\Protocols\Ymsg\Types.h" />
-    <ClInclude Include="include\Protocols\Ymsg\YMSGSession.h" />
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChallengeResponse.h" />
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatLoginResponse.h" />
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ClientProfile.h" />

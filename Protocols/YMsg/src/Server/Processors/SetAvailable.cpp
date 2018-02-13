@@ -14,7 +14,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		((void)header);
 		((void)payload);
 
-		session.GetPresenceManager().SetAvailable();
+		session.PresenceManagement().SetAvailable();
 	}
 
 }}}}}

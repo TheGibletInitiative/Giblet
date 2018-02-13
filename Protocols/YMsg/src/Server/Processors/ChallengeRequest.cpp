@@ -4,7 +4,6 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/Server/Processors/ChallengeRequest.h>
-#include <Protocols/YMsg/Server/Builders/ChallengeResponse.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { namespace Processors
@@ -14,11 +13,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		//	NOTE: We no longer initialize the session with the client id here as that should occur
-		//	after authentication and via an event from the login service
-		Builders::ChallengeResponse builder;
-		builder.Build(session.GetConnection(), payload.clientId);
-		builder.Send(session.GetConnection());
+		session.RequestAuthChallenge(payload.clientId);
 	}
 
 }}}}}

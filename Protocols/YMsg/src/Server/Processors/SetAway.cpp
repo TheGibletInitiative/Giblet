@@ -14,11 +14,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		((void)header);
 
 		const auto onlineStatus(to_enum<availability_type>(payload.statusId));
-		auto& presenceManager(session.GetPresenceManager());
+		auto& presenceManagement(session.PresenceManagement());
 
 		if (onlineStatus == availability_type::Invisible)
 		{
-			presenceManager.SetInvisible();
+			presenceManagement.SetInvisible();
 		}
 		else
 		{
@@ -27,15 +27,15 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			//	FIXME: Add special handler for idle state to include time idle
 			if (onlineStatus == availability_type::Idle)
 			{
-				presenceManager.SetIdle(payload.customMessage, isBusy, payload.idleUnknown);
+				presenceManagement.SetIdle(payload.customMessage, isBusy, payload.idleUnknown);
 			}
 			else if (onlineStatus == availability_type::Custom)
 			{
-				presenceManager.SetCustomStatus(payload.customMessage, isBusy);
+				presenceManagement.SetCustomStatus(payload.customMessage, isBusy);
 			}
 			else 
 			{
-				presenceManager.SetAway(onlineStatus, isBusy);
+				presenceManagement.SetAway(onlineStatus, isBusy);
 			}
 		}
 	}

@@ -14,7 +14,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		((void)header);
 
 		//	Add the contact to our session
-		session.GetContactManager().AddContact(payload.clientId, payload.contactId, payload.group, payload.message);
+		session.ContactManagement().AddContact(payload.clientId, payload.contactId, payload.group, payload.message);
 	}
 
 }}}}}
