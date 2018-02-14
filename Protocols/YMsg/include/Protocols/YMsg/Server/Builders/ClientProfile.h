@@ -16,8 +16,6 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		using session_type = SessionContext;
 
-		virtual void Build(connection_type& connection, session_type& session);
-
 		virtual void Build(
 			connection_type& connection,
 			string_view_type clientId,

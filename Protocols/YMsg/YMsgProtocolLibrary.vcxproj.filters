@@ -221,9 +221,6 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAway.h">
       <Filter>Header Files\Server\Processors</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockProfileManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -276,6 +273,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\SessionContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\ProfileManagementEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\ProfileManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\MockProfileManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -394,9 +400,6 @@
     <ClCompile Include="src\Server\Processors\SetAway.cpp">
       <Filter>Source Files\Server\Processors</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockProfileManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MockBlockedContactManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -446,6 +449,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MockPresenceManagementLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ProfileManagementEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MockProfileManagementLink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

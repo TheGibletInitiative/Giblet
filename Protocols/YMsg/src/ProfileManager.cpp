@@ -4,23 +4,14 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/ProfileManager.h>
-#include <Protocols/YMsg/Server/Builders/ProfileActivated.h>
 #include <Protocols/YMsg/Server/Builders/ProfileDeactivated.h>
+
+#include <Protocols/YMsg/ProfileManagementEvents.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	ProfileManager::ProfileManager(std::shared_ptr<ClientConnection> connection)
-		: connection_(connection)
-	{
-		if (!connection_)
-		{
-			throw std::invalid_argument("connection cannot be null");
-		}
-	}
-
-	
 	void ProfileManager::Load(string_view_type clientId, container_type profiles)
 	{
 		clientId_ = clientId;
@@ -60,33 +51,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void ProfileManager::OnAdded(string_view_type profileId)
-	{
-		//	TODO: Report error if found but continue just in case
-		if (!IsClientOrProfileId(profileId))
-		{
-			profiles_.push_back(std::string(profileId));
-		}
-
-		//	TODO: Tell messenger the profile id was added
-	}
 
 
-	void ProfileManager::OnActivated(string_view_type profileId)
-	{
-		//	Tell messenger the add request was sent
-		Server::Builders::ProfileActivated builder;
-		builder.Build(*connection_, profileId);
-		builder.Send(*connection_);
-	}
-
-
-	void ProfileManager::OnDeactivated(string_view_type profileId)
-	{
-		//	Tell messenger the add request was sent
-		Server::Builders::ProfileDeactivated builder;
-		builder.Build(*connection_, profileId);
-		builder.Send(*connection_);
-	}
 
 }}}

@@ -11,6 +11,7 @@
 #include <Protocols/YMsg/PresenceManagementLink.h>
 #include <Protocols/YMsg/PresenceEvents.h>
 #include <Protocols/YMsg/ProfileManager.h>
+#include <Protocols/YMsg/ProfileManagementLink.h>
 #include <Protocols/YMsg/ContactManagementLink.h>
 
 
@@ -32,6 +33,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			std::shared_ptr<ClientConnection> connection,
 			std::shared_ptr<BlockedContactManager> blockedContactManager,
 			std::shared_ptr<ProfileManager> profileManager,
+			std::shared_ptr<ProfileManagementLink> profileManagementLink,
 			std::shared_ptr<ContactManager> contactManager,
 			std::shared_ptr<ContactManagementLink> contactManagementLink,
 			std::shared_ptr<PresenceManagementLink>	presenceManagementLink);
@@ -43,10 +45,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		//	FIXME: Limit usage of this.
 		virtual ClientConnection& GetConnection();
 
-		virtual ContactManager& GetContacts();
 		virtual ContactManagementLink& ContactManagement();
 		virtual BlockedContactManager& GetBlockedContactManager();
-		virtual ProfileManager& GetProfileManager();
+		virtual ProfileManagementLink& ProfileManagement();
 		virtual PresenceManagementLink& PresenceManagement();
 
 
@@ -65,6 +66,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		const std::shared_ptr<ClientConnection>			connection_;
 		const std::shared_ptr<BlockedContactManager>	blockedContactManager_;
 		const std::shared_ptr<ProfileManager>			profileManager_;
+		const std::shared_ptr<ProfileManagementLink>	profileManagementLink_;
 		const std::shared_ptr<ContactManagementLink>	contactManagementLink_;
 		const std::shared_ptr<ContactManager>			contactManager_;
 		const std::shared_ptr<PresenceManagementLink>	presenceManagementLink_;

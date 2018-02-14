@@ -19,12 +19,14 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		std::shared_ptr<ClientConnection> connection,
 		std::shared_ptr<BlockedContactManager> blockedContactManager,
 		std::shared_ptr<ProfileManager> profileManager,
+		std::shared_ptr<ProfileManagementLink> profileManagementLink,
 		std::shared_ptr<ContactManager> contactManager,
 		std::shared_ptr<ContactManagementLink> contactManagementLink,
 		std::shared_ptr<PresenceManagementLink>	presenceManagementLink)
 		:
 		connection_(connection),
 		profileManager_(profileManager),
+		profileManagementLink_(profileManagementLink),
 		blockedContactManager_(blockedContactManager),
 		contactManagementLink_(contactManagementLink),
 		contactManager_(contactManager),
@@ -64,12 +66,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	ContactManager& SessionContext::GetContacts()
-	{
-		return *contactManager_;
-	}
-
-
 	ContactManagementLink& SessionContext::ContactManagement()
 	{
 		return *contactManagementLink_;
@@ -82,9 +78,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	ProfileManager& SessionContext::GetProfileManager()
+	ProfileManagementLink& SessionContext::ProfileManagement()
 	{
-		return *profileManager_;
+		return *profileManagementLink_;
 	}
 
 
@@ -127,7 +123,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	void SessionContext::RequestClientProfile()
 	{
 		Server::Builders::ClientProfile	builder;
-		builder.Build(*connection_, *this);
+		builder.Build(
+			*connection_,
+			profileManager_->GetClientId(),
+			*profileManager_,
+			*contactManager_,
+			*blockedContactManager_);
 		builder.Send(*connection_);
 	}
 
@@ -143,7 +144,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		//	add more management of what the actual login id is if we want to FULLY support profile
 		//	id's since you could log in with them as well as your primary id.
 		Server::Builders::ClientProfile	clientProfileBuilder;
-		clientProfileBuilder.Build(*connection_, *this);
+		clientProfileBuilder.Build(
+			*connection_,
+			profileManager_->GetClientId(),
+			*profileManager_,
+			*contactManager_,
+			*blockedContactManager_);
 		clientProfileBuilder.Send(*connection_);
 
 

@@ -13,7 +13,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		session.GetProfileManager().Deactivate(payload.clientId);
+		session.ProfileManagement().Deactivate(payload.clientId);
 	}
 
 }}}}}

@@ -9,15 +9,6 @@
 namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { namespace Builders
 {
 
-	void ClientProfile::Build(connection_type& connection, session_type& session)
-	{
-		const auto& profileManager(session.GetProfileManager());
-		const auto& blockedContactManager(session.GetBlockedContactManager());
-
-		Build(connection, session.GetClientId(), profileManager, session.GetContacts(), blockedContactManager);
-	}
-
-
 	void ClientProfile::Build(
 		connection_type& connection,
 		string_view_type clientId,
