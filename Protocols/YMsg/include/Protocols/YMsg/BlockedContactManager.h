@@ -4,7 +4,7 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #pragma once
-#include <Protocols/YMsg/ClientConnection.h>
+#include <Protocols/YMsg/Types.h>
 #include <vector>
 #include <string>
 #include <string_view>
@@ -26,9 +26,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	public:
 
-		explicit BlockedContactManager(std::shared_ptr<ClientConnection> connection);
-
+		BlockedContactManager() = default;
 		BlockedContactManager(const BlockedContactManager&) = delete;
+		virtual ~BlockedContactManager() = default;
 
 		virtual void Load(container_type&& blockedContacts);
 
@@ -37,23 +37,15 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		virtual bool IsBlocked(string_view_type contactId) const;
 
-		//
-		virtual void Add(string_view_type clientId, string_view_type contactId) = 0;
-		virtual void Remove(string_view_type clientId, string_view_type contactId) = 0;
 
+		virtual void Add(string_view_type contactId);
+		virtual void Remove(string_view_type contactId);
 
 
 	protected:
 
-		virtual void OnNotInBlockedList(string_view_type clientId, string_view_type contactId);
-		virtual void OnAlreadyBlocked(string_view_type clientId, string_view_type contactId);
-		virtual void OnBlocked(string_view_type clientId, string_view_type contactId);
-		virtual void OnUnblocked(string_view_type clientId, string_view_type contactId);
-
-	protected:
-
-		const std::shared_ptr<ClientConnection>	connection_;
 		container_type	blockedUsers_;
 	};
+
 
 }}}

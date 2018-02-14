@@ -156,12 +156,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BasicContactManager.cpp" />
+    <ClCompile Include="src\BlockedContactManagementEvents.cpp" />
     <ClCompile Include="src\BlockedContactManager.cpp" />
     <ClCompile Include="src\Builder.cpp" />
     <ClCompile Include="src\ClientConnection.cpp" />
     <ClCompile Include="src\ContactManagementEvents.cpp" />
     <ClCompile Include="src\ContactManager.cpp" />
-    <ClCompile Include="src\MockBlockedContactManager.cpp" />
+    <ClCompile Include="src\MockBlockedContactManagementLink.cpp" />
     <ClCompile Include="src\MockContactManagementLink.cpp" />
     <ClCompile Include="src\MockPresenceManagementLink.cpp" />
     <ClCompile Include="src\MockProfileManagementLink.cpp" />
@@ -196,14 +197,16 @@
     <ClCompile Include="src\Server\Processors\SetAway.cpp" />
     <ClCompile Include="src\SessionContext.cpp" />
     <ClCompile Include="src\SessionGateway.cpp" />
+    <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementEvents.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManager.h" />
+    <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\Builder.h" />
     <ClInclude Include="include\Protocols\YMsg\ClientConnection.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManagementEvents.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\Header.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManager.h" />
+    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\MockContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\MockPresenceManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\MockProfileManagementLink.h" />

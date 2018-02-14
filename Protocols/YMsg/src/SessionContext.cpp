@@ -18,6 +18,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	SessionContext::SessionContext(
 		std::shared_ptr<ClientConnection> connection,
 		std::shared_ptr<BlockedContactManager> blockedContactManager,
+		std::shared_ptr<BlockedContactManagementLink> blockedContactManagementLink,
 		std::shared_ptr<ProfileManager> profileManager,
 		std::shared_ptr<ProfileManagementLink> profileManagementLink,
 		std::shared_ptr<ContactManager> contactManager,
@@ -27,7 +28,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		connection_(connection),
 		profileManager_(profileManager),
 		profileManagementLink_(profileManagementLink),
-		blockedContactManager_(blockedContactManager),
+		xblockedContactManager_(blockedContactManager),
+		blockedContactManagementLink_(blockedContactManagementLink),
 		contactManagementLink_(contactManagementLink),
 		contactManager_(contactManager),
 		presenceManagementLink_(presenceManagementLink)
@@ -37,7 +39,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			throw std::invalid_argument("connection cannot be null");
 		}
 
-		if (!blockedContactManager_)
+		if (!blockedContactManagementLink_)
 		{
 			throw std::invalid_argument("blocked contact manager cannot be null");
 		}
@@ -72,9 +74,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	BlockedContactManager& SessionContext::GetBlockedContactManager()
+	BlockedContactManagementLink& SessionContext::BlockedContactManagement()
 	{
-		return *blockedContactManager_;
+		return *blockedContactManagementLink_;
 	}
 
 
@@ -128,7 +130,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			profileManager_->GetClientId(),
 			*profileManager_,
 			*contactManager_,
-			*blockedContactManager_);
+			*xblockedContactManager_);
 		builder.Send(*connection_);
 	}
 
@@ -149,7 +151,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			profileManager_->GetClientId(),
 			*profileManager_,
 			*contactManager_,
-			*blockedContactManager_);
+			*xblockedContactManager_);
 		clientProfileBuilder.Send(*connection_);
 
 

@@ -18,11 +18,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 
 		if (payload.mode == blockContactMode)
 		{
-			session.GetBlockedContactManager().Add(payload.clientId, payload.contactId);
+			session.BlockedContactManagement().Add(payload.clientId, payload.contactId);
 		}
 		else if (payload.mode == unblockContactMode)
 		{
-			session.GetBlockedContactManager().Remove(payload.clientId, payload.contactId);
+			session.BlockedContactManagement().Remove(payload.clientId, payload.contactId);
 		}
 	}
 

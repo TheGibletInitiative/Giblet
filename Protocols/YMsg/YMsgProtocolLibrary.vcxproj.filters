@@ -221,9 +221,6 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAway.h">
       <Filter>Header Files\Server\Processors</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\ChangeBlockedUser.h">
       <Filter>Header Files\Server\Processors</Filter>
     </ClInclude>
@@ -282,6 +279,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\MockProfileManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -400,9 +406,6 @@
     <ClCompile Include="src\Server\Processors\SetAway.cpp">
       <Filter>Source Files\Server\Processors</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockBlockedContactManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Server\Processors\ChangeBlockedUser.cpp">
       <Filter>Source Files\Server\Processors</Filter>
     </ClCompile>
@@ -455,6 +458,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MockProfileManagementLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BlockedContactManagementEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MockBlockedContactManagementLink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

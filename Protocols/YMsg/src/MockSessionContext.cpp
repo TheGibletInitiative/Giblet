@@ -28,7 +28,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		contactManager_->LoadContact(ContactInfo("dinky", "Myself", ContactInfo::Linked, initialAvailability));
 		contactManager_->LoadContact(ContactInfo("blinky", "Myself", ContactInfo::Linked, initialAvailability));
 		contactManager_->LoadContact(ContactInfo("brad", "Myself", ContactInfo::Linked, initialAvailability));
-		blockedContactManager_->Load({ "wierdo", "jerk", "germinator" });
+		xblockedContactManager_->Load({ "wierdo", "jerk", "germinator" });
 
 
 		OnAuthenticationComplete(clientId);
