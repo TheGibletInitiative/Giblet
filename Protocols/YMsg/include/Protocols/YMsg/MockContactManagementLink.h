@@ -30,7 +30,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		const std::shared_ptr<ClientConnection>			connection_;
 		const std::shared_ptr<BlockedContactManager>	blockedContactManager_;
 		const std::shared_ptr<ProfileManager>			profileManager_;
 		const std::shared_ptr<ContactManagementEvents>	contactEvents_;

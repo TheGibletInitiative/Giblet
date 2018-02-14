@@ -21,10 +21,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		contactEvents_(contactEvents),
 		contactManager_(contactManager)
 	{
-		if (!connection_)
-		{
-			throw std::invalid_argument("connection cannot be null");
-		}
 
 		if (!blockedContactManager_)
 		{
