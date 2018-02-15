@@ -20,6 +20,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			std::shared_ptr<ProfileManager> profileManager,
 			std::shared_ptr<ContactManager> contactManager,
 			std::shared_ptr<ContactManagementEvents> contactEvents);
+		MockContactManagementLink(const MockContactManagementLink&) = delete;
 
 
 		void DenyRequest(string_view_type clientId, string_view_type contactId, string_view_type message) override;

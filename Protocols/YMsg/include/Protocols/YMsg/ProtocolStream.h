@@ -6,9 +6,6 @@
 #pragma once
 #include <Protocols/YMsg/Parser.h>
 #include <Protocols/YMsg/Processor.h>
-#include <vector>
-#include <iostream>
-#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -29,7 +26,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	};
 
 
-	//	FIXME: Rename to ProtocolBuffer
+	//	FIXME: Rename to ProtocolBuffer or something
 	class ProtocolStream
 	{
 	public:

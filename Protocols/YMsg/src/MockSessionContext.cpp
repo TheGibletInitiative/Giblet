@@ -9,8 +9,6 @@
 #include <Protocols/YMsg/Server/Builders/NewMailNotification.h>
 #include <Protocols/YMsg/Server/Builders/OfflineMessage.h>
 #include <Protocols/YMsg/Server/Builders/YahooAlert.h>
-#include <algorithm>
-#include <Windows.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -28,7 +26,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		contactManager_->LoadContact(ContactInfo("dinky", "Myself", ContactInfo::Linked, initialAvailability));
 		contactManager_->LoadContact(ContactInfo("blinky", "Myself", ContactInfo::Linked, initialAvailability));
 		contactManager_->LoadContact(ContactInfo("brad", "Myself", ContactInfo::Linked, initialAvailability));
-		xblockedContactManager_->Load({ "wierdo", "jerk", "germinator" });
+		blockedContactManager_->Load({ "wierdo", "jerk", "germinator" });
 
 
 		OnAuthenticationComplete(clientId);

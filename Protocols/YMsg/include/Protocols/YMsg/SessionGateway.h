@@ -6,6 +6,7 @@
 #pragma once
 #include <Protocols/YMsg/Builder.h>
 
+
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 

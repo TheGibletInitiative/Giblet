@@ -4,7 +4,9 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #pragma once
+#include <string>
 #include <string_view>
+
 
 //	FIXME: def for SOCKET. This shouldn't be needed in this library!
 extern "C"

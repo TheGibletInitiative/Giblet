@@ -19,18 +19,18 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 		explicit ClientConnection(SOCKET sessionSocket);
-
 		ClientConnection(const ClientConnection&) = delete;
+		virtual ~ClientConnection() = default;
 
 
-		SOCKET GetSocket() const;	//	TODO: Abstract SOCKET - switch to Boost ASIO in the near future
-		void SendToClient(const char *data, const size_t length);
+		virtual SOCKET GetSocket() const;	//	TODO: Abstract SOCKET - switch to Boost ASIO in the near future
+		virtual void SendToClient(const char *data, const size_t length);
 
-		sessionid_type GetSessionId() const;
-		protocolversion_type GetProtocolVersion() const;
+		virtual sessionid_type GetSessionId() const;
+		virtual protocolversion_type GetProtocolVersion() const;
 
-		void OnProtocolSync(protocolversion_type version);
-		void BeginSession(sessionid_type id);
+		virtual void OnProtocolSync(protocolversion_type version);
+		virtual void BeginSession(sessionid_type id);
 
 
 	protected:

@@ -19,12 +19,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 		if (!connection_)
 		{
-			throw std::invalid_argument("connection cannot be null");
+			throw std::invalid_argument("connection_ cannot be null");
 		}
 
 		if (!blockedContactManager_)
 		{
-			throw std::invalid_argument("blockedContactManager cannot be null");
+			throw std::invalid_argument("blockedContactManager_ cannot be null");
 		}
 	}
 

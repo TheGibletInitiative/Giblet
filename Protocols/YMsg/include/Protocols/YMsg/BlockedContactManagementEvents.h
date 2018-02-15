@@ -6,6 +6,7 @@
 #pragma once
 #include <Protocols/YMsg/BlockedContactManager.h>
 #include <Protocols/YMsg/ClientConnection.h>
+#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

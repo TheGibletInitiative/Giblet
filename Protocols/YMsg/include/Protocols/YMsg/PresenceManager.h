@@ -33,6 +33,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual void SetCustomStatus(string_view_type message, bool isBusy);
 		virtual void SetInvisible();
 
+
 	protected:
 
 		availability_type	availability_ = availability_type::Offline;

@@ -24,6 +24,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		void Activate(string_view_type id) override;
 		void Deactivate(string_view_type id) override;
 
+
 	protected:
 
 		const std::shared_ptr<ProfileManager>			profileManager_;

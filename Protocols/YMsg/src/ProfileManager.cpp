@@ -4,9 +4,6 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/ProfileManager.h>
-#include <Protocols/YMsg/Server/Builders/ProfileDeactivated.h>
-
-#include <Protocols/YMsg/ProfileManagementEvents.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

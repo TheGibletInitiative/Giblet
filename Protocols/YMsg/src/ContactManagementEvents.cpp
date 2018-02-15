@@ -13,7 +13,6 @@
 #include <Protocols/YMsg/Server/Builders/DenyContactAddRequest.h>
 #include <Protocols/YMsg/Server/Builders/ContactOnline.h>
 #include <Protocols/YMsg/Server/Builders/ContactOffline.h>
-#include <algorithm>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -32,22 +31,22 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 		if (!connection_)
 		{
-			throw std::invalid_argument("connection cannot be null");
+			throw std::invalid_argument("connection_ cannot be null");
 		}
 
 		if (!blockedContactManager_)
 		{
-			throw std::invalid_argument("blocked contact manager cannot be null");
+			throw std::invalid_argument("blockedContactManager_ cannot be null");
 		}
 
 		if (!profileManager_)
 		{
-			throw std::invalid_argument("profile manager cannot be null");
+			throw std::invalid_argument("profileManager_ be null");
 		}
 
 		if (!contactManager_)
 		{
-			throw std::invalid_argument("contacts cannot be null");
+			throw std::invalid_argument("contactManager_ cannot be null");
 		}
 	}
 

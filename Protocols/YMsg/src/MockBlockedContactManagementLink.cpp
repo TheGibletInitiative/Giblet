@@ -18,12 +18,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 		if (!blockedContactManager_)
 		{
-			throw std::invalid_argument("blockedContactManager cannot be null");
+			throw std::invalid_argument("blockedContactManager_ cannot be null");
 		}
 
 		if (!blockedContactManagementEvents_)
 		{
-			throw std::invalid_argument("blockedContactManagementEvents cannot be null");
+			throw std::invalid_argument("blockedContactManagementEvents_ cannot be null");
 		}
 	}
 

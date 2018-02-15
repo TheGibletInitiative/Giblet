@@ -7,11 +7,7 @@
 #include <Protocols/YMsg/ClientConnection.h>
 #include <Protocols/YMsg/ProfileManager.h>
 #include <Protocols/YMsg/BlockedContactManager.h>
-#include <vector>
-#include <string>
-#include <string_view>
 #include <map>
-#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -97,6 +93,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		ContactManager() = default;
 		ContactManager(const ContactManager&) = delete;
+		virtual ~ContactManager() = default;
 
 		virtual void LoadContact(const contact_info_type& contact);
 
@@ -116,6 +113,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual const contact_info_type* SetContactAway(string_view_type contactId, availability_type availability, bool isBusy);
 		virtual const contact_info_type* SetContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy);
 		virtual const contact_info_type* SetContactOffline(string_view_type contactId);
+
 
 	protected:
 

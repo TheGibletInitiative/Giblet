@@ -22,6 +22,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		{
 			throw std::invalid_argument("connection cannot be null");
 		}
+
 		if (!profileManager_)
 		{
 			throw std::invalid_argument("profileManager_ cannot be null");

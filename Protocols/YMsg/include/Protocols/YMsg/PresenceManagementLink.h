@@ -5,7 +5,6 @@
 //
 #pragma once
 #include <Protocols/YMsg/PresenceManager.h>
-#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

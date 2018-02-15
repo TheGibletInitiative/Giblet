@@ -7,8 +7,6 @@
 #include <Protocols/YMsg/Header.h>
 #include <Protocols/YMsg/SessionContext.h>
 #include <Protocols/YMsg/Types.h>
-#include <vector>
-#include <string>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

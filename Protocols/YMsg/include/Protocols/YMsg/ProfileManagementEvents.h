@@ -5,9 +5,6 @@
 //
 #pragma once
 #include <Protocols/YMsg/ProfileManager.h>
-#include <vector>
-#include <string>
-#include <string_view>
 #include <memory>
 
 
@@ -18,8 +15,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 	public:
 
-		using string_type = std::string;			//	should be a UTF8 string
-		using string_view_type = std::string_view;	//	should be a UTF8 string
+		using string_type = std::string;
+		using string_view_type = std::string_view;
 
 
 	public:

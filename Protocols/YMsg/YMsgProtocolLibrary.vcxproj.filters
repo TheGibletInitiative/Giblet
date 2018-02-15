@@ -436,9 +436,6 @@
     <ClCompile Include="src\MockSessionContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\BasicContactManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ContactManagementEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

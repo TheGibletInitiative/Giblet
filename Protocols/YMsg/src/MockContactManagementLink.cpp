@@ -24,12 +24,17 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		if (!blockedContactManager_)
 		{
-			throw std::invalid_argument("blocked contact manager cannot be null");
+			throw std::invalid_argument("blockedContactManager_ cannot be null");
 		}
 
 		if (!profileManager_)
 		{
-			throw std::invalid_argument("profile manager cannot be null");
+			throw std::invalid_argument("profileManager_ cannot be null");
+		}
+
+		if (!contactEvents_)
+		{
+			throw std::invalid_argument("contactEvents_ cannot be null");
 		}
 
 		if (!contactManager_)
@@ -113,6 +118,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			return;
 		}
 
+		//	FIXME
 		//if (groupedContacts_.find(newName) != groupedContacts_.end())
 		//{
 		//	//	new name already exists. Case not handled!
@@ -120,6 +126,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		//	return;
 		//}
 
+		//	FIXME
 		//auto currentGroup(groupedContacts_.find(currentName));
 		//if (currentGroup == groupedContacts_.end())
 		//{

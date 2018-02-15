@@ -8,8 +8,6 @@
 #include <Protocols/YMsg/Server/Builders/ChallengeResponse.h>
 #include <Protocols/YMsg/Server/Builders/PingConfiguration.h>
 #include <Protocols/YMsg/Server/Builders/ContactOnline.h>
-#include <algorithm>
-#include <Windows.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -26,36 +24,52 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		std::shared_ptr<PresenceManagementLink>	presenceManagementLink)
 		:
 		connection_(connection),
+		blockedContactManager_(blockedContactManager),
+		blockedContactManagementLink_(blockedContactManagementLink),
 		profileManager_(profileManager),
 		profileManagementLink_(profileManagementLink),
-		xblockedContactManager_(blockedContactManager),
-		blockedContactManagementLink_(blockedContactManagementLink),
-		contactManagementLink_(contactManagementLink),
 		contactManager_(contactManager),
+		contactManagementLink_(contactManagementLink),
 		presenceManagementLink_(presenceManagementLink)
 	{
 		if (!connection_)
 		{
-			throw std::invalid_argument("connection cannot be null");
+			throw std::invalid_argument("connection_ cannot be null");
 		}
 
-		if (!blockedContactManagementLink_)
+		if (!blockedContactManager_)
 		{
 			throw std::invalid_argument("blocked contact manager cannot be null");
 		}
 
+		if (!blockedContactManagementLink_)
+		{
+			throw std::invalid_argument("blocked contact manager link cannot be null");
+		}
+
 		if (!profileManager_)
 		{
-			throw std::invalid_argument("profile manager cannot be null");
+			throw std::invalid_argument("profileManager_ cannot be null");
+		}
+
+		if (!profileManagementLink_)
+		{
+			throw std::invalid_argument("profileManagementLink_  cannot be null");
 		}
 
 		if (!contactManager_)
 		{
-			throw std::invalid_argument("basicContactManager  cannot be null");
+			throw std::invalid_argument("contactManager_  cannot be null");
 		}
+
+		if (!contactManagementLink_)
+		{
+			throw std::invalid_argument("contactManagementLink_  cannot be null");
+		}
+
 		if (!presenceManagementLink_)
 		{
-			throw std::invalid_argument("basicContactManager  cannot be null");
+			throw std::invalid_argument("presenceManagementLink_  cannot be null");
 		}
 	}
 
@@ -130,7 +144,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			profileManager_->GetClientId(),
 			*profileManager_,
 			*contactManager_,
-			*xblockedContactManager_);
+			*blockedContactManager_);
 		builder.Send(*connection_);
 	}
 
@@ -151,7 +165,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			profileManager_->GetClientId(),
 			*profileManager_,
 			*contactManager_,
-			*xblockedContactManager_);
+			*blockedContactManager_);
 		clientProfileBuilder.Send(*connection_);
 
 

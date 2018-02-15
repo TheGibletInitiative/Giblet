@@ -17,7 +17,22 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		profileManager_(profileManager),
 		contactManager_(contactManager),
 		presenceEvents_(presenceEvents)
-	{}
+	{
+		if (!profileManager_)
+		{
+			throw std::invalid_argument("profileManager_ cannot be null");
+		}
+
+		if (!contactManager_)
+		{
+			throw std::invalid_argument("contactManager_ cannot be null");
+		}
+
+		if (!presenceEvents_)
+		{
+			throw std::invalid_argument("presenceEvents_ cannot be null");
+		}
+	}
 
 
 	void MockPresenceManagementLink::BeginSession(availability_type initialAvailability)

@@ -17,12 +17,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 	public:
 
-		using PresenceManagementLink::PresenceManagementLink;
-
 		MockPresenceManagementLink(
 			std::shared_ptr<ProfileManager> profileManager,
 			std::shared_ptr<ContactManager> contactManager,
 			std::shared_ptr<PresenceEvents> presenceEvents);
+		MockPresenceManagementLink(const MockPresenceManagementLink&) = delete;
+
 
 		void BeginSession(availability_type initialAvailability) override;
 
@@ -31,6 +31,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		void SetAway(availability_type availability, bool isBusy) override;
 		void SetCustomStatus(string_view_type message, bool isBusy) override;
 		void SetInvisible() override;
+
 
 	protected:
 

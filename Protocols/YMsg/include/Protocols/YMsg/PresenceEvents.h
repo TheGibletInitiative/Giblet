@@ -5,6 +5,7 @@
 //
 #pragma once
 #include <Protocols/YMsg/ContactManager.h>
+#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -14,8 +15,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 	public:
 
-		using string_type = std::string;			//	should be a UTF8 string
-		using string_view_type = std::string_view;	//	should be a UTF8 string
+		using string_type = std::string;
+		using string_view_type = std::string_view;
 		using encoding_type = detail::TextEncoding;
 		using addrequeststatus_type = detail::AddContactRequestResultStatus;
 		using availability_type = detail::Availability;
@@ -23,11 +24,11 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	public:
 
-		explicit PresenceEvents(
+		PresenceEvents(
 			std::shared_ptr<ClientConnection> connection,
 			std::shared_ptr<ContactManager> contactManager);
-
 		PresenceEvents(const PresenceEvents&) = delete;
+		virtual ~PresenceEvents() = default;
 
 
 		//	Triggered by server

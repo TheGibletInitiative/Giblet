@@ -4,7 +4,7 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/Builder.h>
-#include <WinSock2.h>
+#include <WinSock2.h>	//	FIXME: Remove - only needed for htons
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

@@ -155,7 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\BasicContactManager.cpp" />
     <ClCompile Include="src\BlockedContactManagementEvents.cpp" />
     <ClCompile Include="src\BlockedContactManager.cpp" />
     <ClCompile Include="src\Builder.cpp" />

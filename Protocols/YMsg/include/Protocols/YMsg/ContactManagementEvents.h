@@ -5,6 +5,7 @@
 //
 #pragma once
 #include <Protocols/YMsg/ContactManager.h>
+#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -23,13 +24,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	public:
 
-		explicit ContactManagementEvents(
+		ContactManagementEvents(
 			std::shared_ptr<ClientConnection> connection,
 			std::shared_ptr<BlockedContactManager> blockedContactManager,
 			std::shared_ptr<ProfileManager> profileManager,
 			std::shared_ptr<ContactManager> contactManager);
-
 		ContactManagementEvents(const ContactManagementEvents&) = delete;
+		virtual ~ContactManagementEvents() = default;
 
 
 		//	Triggered by server

@@ -5,6 +5,7 @@
 //
 #include <Protocols/YMsg/ProtocolStream.h>
 #include <WinSock2.h>
+#include <iostream>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

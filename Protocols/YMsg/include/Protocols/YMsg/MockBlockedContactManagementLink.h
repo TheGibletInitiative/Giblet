@@ -18,9 +18,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		explicit MockBlockedContactManagementLink(
 			std::shared_ptr<BlockedContactManager> blockedContactManager,
 			std::shared_ptr<BlockedContactManagementEvents> blockedContactManagementEvents);
+		MockBlockedContactManagementLink(const MockBlockedContactManagementLink&) = delete;
+
 		
 		void Add(string_view_type clientId, string_view_type contactId) override;
 		void Remove(string_view_type clientId, string_view_type contactId) override;
+
 
 	protected:
 

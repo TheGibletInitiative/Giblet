@@ -6,9 +6,6 @@
 #pragma once
 #include <Protocols/YMsg/ClientConnection.h>
 #include <vector>
-#include <string>
-#include <string_view>
-#include <memory>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
@@ -18,8 +15,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	{
 	public:
 
-		using string_type = std::string;			//	should be a UTF8 string
-		using string_view_type = std::string_view;	//	should be a UTF8 string
+		using string_type = std::string;
+		using string_view_type = std::string_view;
 		using container_type = std::vector<string_type>;
 		using const_iterator = container_type::const_iterator;
 
