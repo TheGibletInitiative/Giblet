@@ -4,7 +4,6 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/ClientConnection.h>
-#include <Protocols/YMsg/Server/Builders/ProtocolAck.h>
 #include <WinSock2.h>
 
 
@@ -39,20 +38,15 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void ClientConnection::OnProtocolSync(protocolversion_type version)
+	void ClientConnection::SetProtocolVersion(protocolversion_type version)
 	{
 		protocolVersion_ = version;
-		
-		//	Acknowledge the sync
-		Server::Builders::ProtocolAck builder;
-		builder.Build(*this);
-		builder.Send(*this);
 	}
 
 
-	void ClientConnection::BeginSession(sessionid_type id)
+	void ClientConnection::SetSessionId(sessionid_type sessionId)
 	{
-		sessionId_ = id;
+		sessionId_ = sessionId;
 	}
 
 }}}

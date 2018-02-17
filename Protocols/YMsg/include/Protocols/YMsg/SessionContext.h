@@ -57,9 +57,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		virtual void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability);
 
-		virtual string_view_type GetClientId() const;
-
-		virtual void RequestAuthChallenge(string_view_type clientId);
 		virtual void RequestClientProfile();
 
 		virtual void OnAuthenticationComplete(string_view_type clientId);
@@ -75,8 +72,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		const std::shared_ptr<ContactManager>			contactManager_;
 		const std::shared_ptr<ContactManagementLink>	contactManagementLink_;
 		const std::shared_ptr<PresenceManagementLink>	presenceManagementLink_;
-		bool					loggedIn_;
-		string_type				clientId_;
 	};
 
 }}}

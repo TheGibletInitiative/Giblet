@@ -63,6 +63,11 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			customMessage(customMessage)
 		{}
 
+		bool IsOnline() const
+		{
+			return availability != availability_type::Offline;
+		}
+
 		string_type			id;
 		string_type			group;
 		availability_type	availability;

@@ -5,7 +5,6 @@
 //
 #include <Protocols/YMsg/SessionContext.h>
 #include <Protocols/YMsg/Server/Builders/ClientProfile.h>
-#include <Protocols/YMsg/Server/Builders/ChallengeResponse.h>
 #include <Protocols/YMsg/Server/Builders/PingConfiguration.h>
 #include <Protocols/YMsg/Server/Builders/ContactOnline.h>
 
@@ -110,30 +109,11 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	void SessionContext::BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability)
 	{
-		//	FIXME: Check for already being logged in
-		loggedIn_ = false;
-		clientId_ = clientId;
-		connection_->BeginSession(id);
+		connection_->SetSessionId(id);
 		presenceManagementLink_->BeginSession(initialAvailability);
 	}
 
 
-	SessionContext::string_view_type SessionContext::GetClientId() const
-	{
-		return clientId_;
-	}
-
-
-
-
-	void SessionContext::RequestAuthChallenge(string_view_type clientId)
-	{
-		//	We don't use any authentication at the moment so we just use method 0
-		//	which causes messenger to omit credentials
-		Server::Builders::ChallengeResponse builder;
-		builder.Build(*connection_, clientId);
-		builder.Send(*connection_);
-	}
 
 
 	void SessionContext::RequestClientProfile()
@@ -153,9 +133,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	void SessionContext::OnAuthenticationComplete(string_view_type clientId)
 	{
-		loggedIn_ = true;
-
-
 		//	NOTE: We originally passed payload.clientId1_ as the name field but we need to
 		//	add more management of what the actual login id is if we want to FULLY support profile
 		//	id's since you could log in with them as well as your primary id.
@@ -173,7 +150,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		std::vector<ContactInfo> onlineContacts;
 		for (const auto& contact : *contactManager_)
 		{
-			if (contact.second.availability != ContactInfo::availability_type::Offline)
+			if (contact.second.IsOnline())
 			{
 				onlineContacts.push_back(contact.second);
 			}

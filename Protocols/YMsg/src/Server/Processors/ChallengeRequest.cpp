@@ -4,6 +4,7 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/Server/Processors/ChallengeRequest.h>
+#include <Protocols/YMsg/Server/Builders/ChallengeResponse.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { namespace Processors
@@ -13,7 +14,11 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 	{
 		((void)header);
 
-		session.RequestAuthChallenge(payload.clientId);
+		//	We don't use any authentication at the moment so we just use method 0
+		//	which causes messenger to omit credentials
+		Server::Builders::ChallengeResponse builder;
+		builder.Build(session.GetConnection(), payload.clientId);
+		builder.Send(session.GetConnection());
 	}
 
 }}}}}

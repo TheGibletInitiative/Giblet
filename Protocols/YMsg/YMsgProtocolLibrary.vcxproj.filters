@@ -290,6 +290,9 @@
     <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Server\Payloads\Authentication.cpp">

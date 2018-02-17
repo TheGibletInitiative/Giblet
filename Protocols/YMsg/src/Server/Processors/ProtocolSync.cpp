@@ -4,6 +4,7 @@
 //	file 'LICENSE.MD', which is part of this source code package.
 //
 #include <Protocols/YMsg/Server/Processors/ProtocolSync.h>
+#include <Protocols/YMsg/Server/Builders/ProtocolAck.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { namespace Processors
@@ -14,7 +15,12 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 		((void)header);
 		((void)payload);
 
-		session.GetConnection().OnProtocolSync(header.protoVersion);
+		session.GetConnection().SetProtocolVersion(header.protoVersion);
+
+		//	Acknowledge the sync
+		Server::Builders::ProtocolAck builder;
+		builder.Build(session.GetConnection());
+		builder.Send(session.GetConnection());
 	}
 
 }}}}}

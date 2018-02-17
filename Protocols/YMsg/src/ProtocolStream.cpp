@@ -11,10 +11,39 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	ProtocolStream::ProtocolStream(std::shared_ptr<dispatcher_type> dispatcher)
-		: dispatcher_(dispatcher)
-	{}
+	ProtocolStream::ProtocolStream(std::shared_ptr<connection_type> connection)
+		: connection_(connection)
+	{
+		if (!connection_)
+		{
+			throw std::invalid_argument("connection_ cannot be null");
+		}
+	}
 
+
+	ProtocolStream::ProtocolStream(
+		std::shared_ptr<connection_type> connection,
+		DispatcherFunction dispatcher)
+		:
+		connection_(connection),
+		dispatcher_(dispatcher)
+	{
+		if (!connection_)
+		{
+			throw std::invalid_argument("connection_ cannot be null");
+		}
+
+		if (!dispatcher_)
+		{
+			throw std::invalid_argument("dispatcher_ cannot be null");
+		}
+	}
+
+
+	void ProtocolStream::SetDispatcher(DispatcherFunction dispatcher)
+	{
+		dispatcher_ = dispatcher;
+	}
 
 
 
@@ -46,11 +75,11 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 
-	bool ProtocolStream::Append(session_type& session)
+	bool ProtocolStream::ProcessPendingData()
 	{
 		const auto currentSize = data_.size();
 		DWORD incomingSize = 0;
-		if (SOCKET_ERROR == ioctlsocket(session.GetConnection().GetSocket(), FIONREAD, (DWORD*)&incomingSize))
+		if (SOCKET_ERROR == ioctlsocket(connection_->GetSocket(), FIONREAD, (DWORD*)&incomingSize))
 		{
 			std::cerr << "Unable to retrieve number of bytes available on socket\n";
 			return false;
@@ -62,7 +91,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 		data_.resize(currentSize + incomingSize);
-		if (recv(session.GetConnection().GetSocket(), &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
+		if (recv(connection_->GetSocket(), &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
 		{
 			data_.resize(currentSize);
 			std::cerr << "Unable to read " << incomingSize << " bytes from socket\n";
@@ -71,14 +100,14 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		if (HasPacket())
 		{
-			Consume(session);
+			Consume();
 		}
 
 		return true;
 	}
 
 
-	void ProtocolStream::Consume(session_type& session)
+	void ProtocolStream::Consume()
 	{
 		if (!HasPacket())
 		{
@@ -91,7 +120,10 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		auto payloadEnd(payloadBegin);
 		advance(payloadEnd, header.payloadSize);
 
-		dispatcher_->Dispatch(session, header, payloadBegin, payloadEnd);
+		if (dispatcher_)
+		{
+			dispatcher_(header, payloadBegin, payloadEnd);
+		}
 
 		data_.erase(data_.begin(), payloadEnd);
 	}

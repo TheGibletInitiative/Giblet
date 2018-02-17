@@ -6,25 +6,11 @@
 #pragma once
 #include <Protocols/YMsg/Parser.h>
 #include <Protocols/YMsg/Processor.h>
+#include <functional>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
-
-	struct IPacketDispatcher
-	{
-		using buffer_type = PacketParser::buffer_type;
-		using session_type = SessionContext;
-
-		virtual ~IPacketDispatcher() = default;
-
-		virtual void Dispatch(
-			session_type& session,
-			const Header& header,
-			buffer_type::const_iterator payloadBegin,
-			buffer_type::const_iterator payloadEnd) = 0;
-	};
-
 
 	//	FIXME: Rename to ProtocolBuffer or something
 	class ProtocolStream
@@ -32,22 +18,29 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	public:
 
 		using buffer_type = std::vector<char>;
-		using dispatcher_type = IPacketDispatcher;
-		using session_type = dispatcher_type::session_type;
+		using const_iterator_type = buffer_type::const_iterator;
+		using connection_type = ClientConnection;
+		using DispatcherFunction = std::function<void(const Header&, const_iterator_type, const_iterator_type)>;
 
 
 	public:
 
-		explicit ProtocolStream(std::shared_ptr<dispatcher_type> dispatcher);
-
+		explicit ProtocolStream(std::shared_ptr<connection_type> connection);
+		ProtocolStream(std::shared_ptr<connection_type> connection, DispatcherFunction dispatcher);
+		ProtocolStream(const ProtocolStream&) = delete;
 		virtual ~ProtocolStream() = default;
 
-		virtual bool Append(session_type& session);
+		ProtocolStream& operator=(const ProtocolStream&) = delete;
+
+
+		virtual void SetDispatcher(DispatcherFunction dispatcher);
+
+		virtual bool ProcessPendingData();
 
 
 	protected:
 
-		virtual void Consume(session_type& session);
+		virtual void Consume();
 
 		bool HasHeader() const;
 		bool IsValidHeader() const;
@@ -58,8 +51,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		std::shared_ptr<dispatcher_type>	dispatcher_;
-		buffer_type							data_;
+		const std::shared_ptr<connection_type>	connection_;
+		buffer_type								data_;
+		DispatcherFunction						dispatcher_;
 	};
 
 }}}

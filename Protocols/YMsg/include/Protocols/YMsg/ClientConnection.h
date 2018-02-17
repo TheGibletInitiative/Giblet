@@ -29,8 +29,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual sessionid_type GetSessionId() const;
 		virtual protocolversion_type GetProtocolVersion() const;
 
-		virtual void OnProtocolSync(protocolversion_type version);
-		virtual void BeginSession(sessionid_type id);
+		virtual void SetProtocolVersion(protocolversion_type version);
+		virtual void SetSessionId(sessionid_type sessionId);
 
 
 	protected:
