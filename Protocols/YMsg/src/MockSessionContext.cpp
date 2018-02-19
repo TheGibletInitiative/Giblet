@@ -14,29 +14,13 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	void MockSessionContext::BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability)
+	void MockSessionContext::BeginSession()
 	{
-		SessionContext::BeginSession(id, clientId, initialAvailability);
+		SessionContext::BeginSession();
 
-		profileManager_->Load(clientId, { "winky", "dinky", "blinky", "brad", "greg" });
-		contactManager_->LoadContact(ContactInfo("jay", "Friends", ContactInfo::Linked));
-		contactManager_->LoadContact(ContactInfo("donna", "Friends", ContactInfo::Linked, ContactInfo::availability_type::Custom, false, "Listening to Bewiz - Booters Paradise"));
-		contactManager_->LoadContact(ContactInfo("david", "Friends", ContactInfo::Linked, ContactInfo::availability_type::Busy, true));
-		contactManager_->LoadContact(ContactInfo("winky", "Myself", ContactInfo::Linked, initialAvailability));
-		contactManager_->LoadContact(ContactInfo("dinky", "Myself", ContactInfo::Linked, initialAvailability));
-		contactManager_->LoadContact(ContactInfo("blinky", "Myself", ContactInfo::Linked, initialAvailability));
-		contactManager_->LoadContact(ContactInfo("brad", "Myself", ContactInfo::Linked, initialAvailability));
-		blockedContactManager_->Load({ "wierdo", "jerk", "germinator" });
+		const auto clientId(profileManager_->GetClientId());
 
-
-		OnAuthenticationComplete(clientId);
-	}
-
-	void MockSessionContext::OnAuthenticationComplete(string_view_type clientId)
-	{
-		SessionContext::OnAuthenticationComplete(clientId);
-
-
+		//	Send pending alerts. Should probably be handled in the authentication stuff
 		if(clientId.find('@') != string_type::npos)
 		{
 			//	Example yahoo alert

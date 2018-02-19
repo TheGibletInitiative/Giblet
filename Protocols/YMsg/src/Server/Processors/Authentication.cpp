@@ -17,7 +17,7 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			? detail::Availability::Offline
 			: detail::Availability::Available);
 
-		session.BeginSession(rand(), payload.clientId1_, initialAvailability);
+		//session.BeginSession(rand(), payload.clientId1_, initialAvailability);
 	}
 
 }}}}}

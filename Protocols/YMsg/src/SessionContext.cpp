@@ -107,15 +107,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 
-	void SessionContext::BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability)
-	{
-		connection_->SetSessionId(id);
-		presenceManagementLink_->BeginSession(initialAvailability);
-	}
-
-
-
-
 	void SessionContext::RequestClientProfile()
 	{
 		Server::Builders::ClientProfile	builder;
@@ -131,7 +122,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 
-	void SessionContext::OnAuthenticationComplete(string_view_type clientId)
+	void SessionContext::BeginSession()
 	{
 		//	NOTE: We originally passed payload.clientId1_ as the name field but we need to
 		//	add more management of what the actual login id is if we want to FULLY support profile
@@ -157,7 +148,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 		Server::Builders::SetContactStatus contactOnlineBuilder;
-		contactOnlineBuilder.Build(*connection_, clientId, onlineContacts);
+		contactOnlineBuilder.Build(*connection_, profileManager_->GetClientId(), onlineContacts);
 		contactOnlineBuilder.Send(*connection_);
 
 

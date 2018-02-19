@@ -11,12 +11,11 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	void PresenceProperties::BeginSession(availability_type initialAvailability)
-	{
-		availability_ = initialAvailability;
-		busy_ = false;
-		message_ = string_type();
-	}
+	PresenceProperties::PresenceProperties(availability_type initialAvailability)
+		:
+		availability_(initialAvailability),
+		busy_(false)
+	{}
 
 
 	void PresenceProperties::SetAvailable()

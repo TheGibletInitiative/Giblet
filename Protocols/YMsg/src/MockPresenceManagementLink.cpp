@@ -12,11 +12,13 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	MockPresenceManagementLink::MockPresenceManagementLink(
 		std::shared_ptr<ProfileManager> profileManager,
 		std::shared_ptr<ContactManager> contactManager,
-		std::shared_ptr<PresenceEvents> presenceEvents)
+		std::shared_ptr<PresenceEvents> presenceEvents,
+		availability_type initialAvailability)
 		:
 		profileManager_(profileManager),
 		contactManager_(contactManager),
-		presenceEvents_(presenceEvents)
+		presenceEvents_(presenceEvents),
+		properties_(initialAvailability)
 	{
 		if (!profileManager_)
 		{
@@ -35,12 +37,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void MockPresenceManagementLink::BeginSession(availability_type initialAvailability)
-	{
-		properties_.BeginSession(initialAvailability);
-	}
-	
-	
 	void MockPresenceManagementLink::SetAvailable()
 	{
 		properties_.SetAvailable();

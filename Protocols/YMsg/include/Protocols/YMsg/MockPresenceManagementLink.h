@@ -20,11 +20,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		MockPresenceManagementLink(
 			std::shared_ptr<ProfileManager> profileManager,
 			std::shared_ptr<ContactManager> contactManager,
-			std::shared_ptr<PresenceEvents> presenceEvents);
+			std::shared_ptr<PresenceEvents> presenceEvents,
+			availability_type initialAvailability);
 		MockPresenceManagementLink(const MockPresenceManagementLink&) = delete;
-
-
-		void BeginSession(availability_type initialAvailability) override;
 
 		void SetAvailable() override;
 		void SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown) override;

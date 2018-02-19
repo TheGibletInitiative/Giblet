@@ -55,11 +55,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		virtual PresenceManagementLink& PresenceManagement();
 
 
-		virtual void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability);
+		virtual void BeginSession();
 
 		virtual void RequestClientProfile();
-
-		virtual void OnAuthenticationComplete(string_view_type clientId);
 
 
 	protected:

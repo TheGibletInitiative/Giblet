@@ -17,8 +17,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using SessionContext::SessionContext;
 
 
-		virtual void BeginSession(sessionid_type id, string_view_type clientId, availability_type initialAvailability) override;
-		virtual void OnAuthenticationComplete(string_view_type clientId) override;
+		virtual void BeginSession() override;
 	};
 
 }}}

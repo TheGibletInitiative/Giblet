@@ -22,10 +22,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	public:
 
 		PresenceProperties() = default;
+		explicit PresenceProperties(availability_type initialAvailability);
 		PresenceProperties(const PresenceProperties&) = delete;
 		virtual ~PresenceProperties() = default;
-
-		virtual void BeginSession(availability_type initialAvailability);
 
 		virtual void SetAvailable();
 		virtual void SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown);

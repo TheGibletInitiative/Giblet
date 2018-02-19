@@ -25,8 +25,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		PresenceManagementLink(const PresenceManagementLink&) = delete;
 		virtual ~PresenceManagementLink() = default;
 
-		virtual void BeginSession(availability_type initialAvailability) = 0;
-
 		virtual void SetAvailable() = 0;
 		virtual void SetIdle(string_view_type message, bool isBusy, string_view_type idleUnknown) = 0;
 		virtual void SetAway(availability_type availability, bool isBusy) = 0;
