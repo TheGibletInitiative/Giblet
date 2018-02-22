@@ -96,7 +96,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -109,7 +108,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -124,7 +122,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +138,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -155,18 +151,15 @@
     <ClCompile Include="src\BlockedContactManager.cpp" />
     <ClCompile Include="src\Builder.cpp" />
     <ClCompile Include="src\ClientConnection.cpp" />
+    <ClCompile Include="src\ConnectionPump.cpp" />
     <ClCompile Include="src\ContactManagementEvents.cpp" />
     <ClCompile Include="src\ContactManager.cpp" />
-    <ClCompile Include="src\MockBlockedContactManagementLink.cpp" />
-    <ClCompile Include="src\MockContactManagementLink.cpp" />
-    <ClCompile Include="src\MockPresenceManagementLink.cpp" />
-    <ClCompile Include="src\MockProfileManagementLink.cpp" />
-    <ClCompile Include="src\MockSessionContext.cpp" />
     <ClCompile Include="src\Parser.cpp" />
     <ClCompile Include="src\PresenceEvents.cpp" />
     <ClCompile Include="src\PresenceManager.cpp" />
     <ClCompile Include="src\ProfileManagementEvents.cpp" />
     <ClCompile Include="src\ProfileManager.cpp" />
+    <ClCompile Include="src\Server\AuthenticationPacketDispatcher.cpp" />
     <ClCompile Include="src\Server\Header.cpp" />
     <ClCompile Include="src\Server\Payloads\DenyContactAddRequest.cpp" />
     <ClCompile Include="src\Server\Payloads\MassPrivateMessage.cpp" />
@@ -190,8 +183,10 @@
     <ClCompile Include="src\Server\Processors\ServiceOperation.cpp" />
     <ClCompile Include="src\Server\Processors\SetAvailable.cpp" />
     <ClCompile Include="src\Server\Processors\SetAway.cpp" />
+    <ClCompile Include="src\Server\V11PacketDispatcher.cpp" />
     <ClCompile Include="src\SessionContext.cpp" />
     <ClCompile Include="src\SessionGateway.cpp" />
+    <ClInclude Include="include\Protocols\YMsg\AuthenticationPacketDispatcher.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementEvents.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementLink.h" />
@@ -201,11 +196,6 @@
     <ClInclude Include="include\Protocols\YMsg\ContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\Header.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManagementLink.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockContactManagementLink.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockPresenceManagementLink.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockProfileManagementLink.h" />
-    <ClInclude Include="include\Protocols\YMsg\MockSessionContext.h" />
     <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h" />
     <ClInclude Include="include\Protocols\YMsg\Parser.h" />
     <ClInclude Include="include\Protocols\YMsg\PresenceEvents.h" />
@@ -281,6 +271,7 @@
     <ClCompile Include="src\Server\Payloads\ActivateProfile.cpp" />
     <ClCompile Include="src\Server\Payloads\DeactivateProfile.cpp" />
     <ClCompile Include="src\Server\Payloads\RemoveContact.cpp" />
+    <ClInclude Include="include\Protocols\YMsg\V11PacketDispatcher.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Server\Builders\ClientProfile.cpp" />

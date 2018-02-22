@@ -3,7 +3,7 @@
 //	This file is subject to the terms and conditions defined in
 //	file 'LICENSE.MD', which is part of this source code package.
 //
-#include <Protocols/YMsg/MockBlockedContactManagementLink.h>
+#include <Protocols/YMsgMock/BlockedContactManagementLink.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

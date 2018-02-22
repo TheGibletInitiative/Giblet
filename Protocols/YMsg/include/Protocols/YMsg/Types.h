@@ -8,12 +8,6 @@
 #include <string_view>
 
 
-//	FIXME: def for SOCKET. This shouldn't be needed in this library!
-extern "C"
-{
-	typedef unsigned int SOCKET;
-}
-
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 

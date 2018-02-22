@@ -3,7 +3,7 @@
 //	This file is subject to the terms and conditions defined in
 //	file 'LICENSE.MD', which is part of this source code package.
 //
-#include <Protocols/YMsg/MockContactManagementLink.h>
+#include <Protocols/YMsgMock/ContactManagementLink.h>
 #include <ctime>
 
 

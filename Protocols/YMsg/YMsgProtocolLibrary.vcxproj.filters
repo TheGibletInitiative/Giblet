@@ -248,9 +248,6 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\ServiceOperation.h">
       <Filter>Header Files\Server\Processors</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockSessionContext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\ContactManagementEvents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -263,12 +260,6 @@
     <ClInclude Include="include\Protocols\YMsg\PresenceManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockContactManagementLink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockPresenceManagementLink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\SessionContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -278,19 +269,19 @@
     <ClInclude Include="include\Protocols\YMsg\ProfileManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockProfileManagementLink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementEvents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementLink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\MockBlockedContactManagementLink.h">
+    <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h">
+    <ClInclude Include="include\Protocols\YMsg\AuthenticationPacketDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\V11PacketDispatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -436,34 +427,28 @@
     <ClCompile Include="src\Server\Processors\ServiceOperation.cpp">
       <Filter>Source Files\Server\Processors</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockSessionContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ContactManagementEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PresenceEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockContactManagementLink.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\SessionContext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MockPresenceManagementLink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ProfileManagementEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockProfileManagementLink.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\BlockedContactManagementEvents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MockBlockedContactManagementLink.cpp">
+    <ClCompile Include="src\ConnectionPump.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\AuthenticationPacketDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server\V11PacketDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

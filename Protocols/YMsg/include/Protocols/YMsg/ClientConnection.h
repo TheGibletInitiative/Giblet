@@ -5,10 +5,28 @@
 //
 #pragma once
 #include <Protocols/YMsg/Types.h>
+#include <functional>
+#include <map>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg
 {
+
+	class ConnectionPump
+	{
+	public:
+
+		using socket_type = uintptr_t;
+		using ondatacallback_type = std::function<bool(ConnectionPump& pump, socket_type, size_t)>;
+
+		virtual void AttachSocket(socket_type socket, ondatacallback_type onData);
+		virtual void Pump();
+
+	protected:
+
+		std::map<socket_type, ondatacallback_type>	onDateCallbacks_;
+	};
+
 
 	class ClientConnection
 	{
@@ -16,14 +34,14 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		using sessionid_type = uint32_t;
 		using protocolversion_type = uint16_t;
+		using socket_type = ConnectionPump::socket_type;
 
 
-		explicit ClientConnection(SOCKET sessionSocket);
+		explicit ClientConnection(socket_type sessionSocket);
 		ClientConnection(const ClientConnection&) = delete;
 		virtual ~ClientConnection() = default;
 
 
-		virtual SOCKET GetSocket() const;	//	TODO: Abstract SOCKET - switch to Boost ASIO in the near future
 		virtual void SendToClient(const char *data, const size_t length);
 
 		virtual sessionid_type GetSessionId() const;
@@ -35,7 +53,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		SOCKET					socket_;
+		socket_type				socket_;
 		sessionid_type			sessionId_;
 		protocolversion_type	protocolVersion_;
 	};

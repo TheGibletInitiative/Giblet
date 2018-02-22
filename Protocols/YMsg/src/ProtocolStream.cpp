@@ -11,28 +11,9 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	ProtocolStream::ProtocolStream(std::shared_ptr<connection_type> connection)
-		: connection_(connection)
+	ProtocolStream::ProtocolStream(DispatcherFunction dispatcher)
+		: dispatcher_(dispatcher)
 	{
-		if (!connection_)
-		{
-			throw std::invalid_argument("connection_ cannot be null");
-		}
-	}
-
-
-	ProtocolStream::ProtocolStream(
-		std::shared_ptr<connection_type> connection,
-		DispatcherFunction dispatcher)
-		:
-		connection_(connection),
-		dispatcher_(dispatcher)
-	{
-		if (!connection_)
-		{
-			throw std::invalid_argument("connection_ cannot be null");
-		}
-
 		if (!dispatcher_)
 		{
 			throw std::invalid_argument("dispatcher_ cannot be null");
@@ -75,15 +56,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 
-	bool ProtocolStream::ProcessPendingData()
+	bool ProtocolStream::ProcessPendingData(ConnectionPump& pump, socket_type socket, size_t incomingSize)
 	{
 		const auto currentSize = data_.size();
-		DWORD incomingSize = 0;
-		if (SOCKET_ERROR == ioctlsocket(connection_->GetSocket(), FIONREAD, (DWORD*)&incomingSize))
-		{
-			std::cerr << "Unable to retrieve number of bytes available on socket\n";
-			return false;
-		}
 
 		if (!incomingSize)
 		{
@@ -91,7 +66,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		}
 
 		data_.resize(currentSize + incomingSize);
-		if (recv(connection_->GetSocket(), &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
+		if (recv(socket, &data_[currentSize], incomingSize, 0) == SOCKET_ERROR)
 		{
 			data_.resize(currentSize);
 			std::cerr << "Unable to read " << incomingSize << " bytes from socket\n";
@@ -100,14 +75,14 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		if (HasPacket())
 		{
-			Consume();
+			Consume(pump);
 		}
 
 		return true;
 	}
 
 
-	void ProtocolStream::Consume()
+	void ProtocolStream::Consume(ConnectionPump& pump)
 	{
 		if (!HasPacket())
 		{
@@ -122,7 +97,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		if (dispatcher_)
 		{
-			dispatcher_(header, payloadBegin, payloadEnd);
+			dispatcher_(pump, header, payloadBegin, payloadEnd);
 		}
 
 		data_.erase(data_.begin(), payloadEnd);

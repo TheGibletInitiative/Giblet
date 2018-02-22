@@ -20,13 +20,14 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using buffer_type = std::vector<char>;
 		using const_iterator_type = buffer_type::const_iterator;
 		using connection_type = ClientConnection;
-		using DispatcherFunction = std::function<void(const Header&, const_iterator_type, const_iterator_type)>;
+		using socket_type = connection_type::socket_type;
+		using DispatcherFunction = std::function<void(ConnectionPump&, const Header&, const_iterator_type, const_iterator_type)>;
 
 
 	public:
 
-		explicit ProtocolStream(std::shared_ptr<connection_type> connection);
-		ProtocolStream(std::shared_ptr<connection_type> connection, DispatcherFunction dispatcher);
+		ProtocolStream() = default;
+		explicit ProtocolStream(DispatcherFunction dispatcher);
 		ProtocolStream(const ProtocolStream&) = delete;
 		virtual ~ProtocolStream() = default;
 
@@ -35,12 +36,12 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		virtual void SetDispatcher(DispatcherFunction dispatcher);
 
-		virtual bool ProcessPendingData();
+		virtual bool ProcessPendingData(ConnectionPump& pump, socket_type socket, size_t incomingSize);
 
 
 	protected:
 
-		virtual void Consume();
+		virtual void Consume(ConnectionPump& pump);
 
 		bool HasHeader() const;
 		bool IsValidHeader() const;
@@ -51,9 +52,8 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 	protected:
 
-		const std::shared_ptr<connection_type>	connection_;
-		buffer_type								data_;
-		DispatcherFunction						dispatcher_;
+		buffer_type			data_;
+		DispatcherFunction	dispatcher_;
 	};
 
 }}}

@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YMsgProtocolMockLibrary", "Protocols\YMsgMock\YMsgProtocolMockLibrary.vcxproj", "{5271B1E5-8DB0-4124-85C8-290314E37068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -93,6 +95,14 @@ Global
 		{D653FAD6-1180-425D-A333-DB3A136460AD}.Release|x64.Build.0 = Release|Win32
 		{D653FAD6-1180-425D-A333-DB3A136460AD}.Release|x86.ActiveCfg = Release|Win32
 		{D653FAD6-1180-425D-A333-DB3A136460AD}.Release|x86.Build.0 = Release|Win32
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Debug|x64.ActiveCfg = Debug|x64
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Debug|x64.Build.0 = Debug|x64
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Debug|x86.ActiveCfg = Debug|Win32
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Debug|x86.Build.0 = Debug|Win32
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Release|x64.ActiveCfg = Release|x64
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Release|x64.Build.0 = Release|x64
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Release|x86.ActiveCfg = Release|Win32
+		{5271B1E5-8DB0-4124-85C8-290314E37068}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

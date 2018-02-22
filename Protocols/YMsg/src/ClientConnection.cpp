@@ -10,15 +10,9 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	ClientConnection::ClientConnection(SOCKET sessionSocket)
+	ClientConnection::ClientConnection(socket_type sessionSocket)
 		: socket_(sessionSocket)
 	{}
-
-
-	SOCKET ClientConnection::GetSocket() const
-	{
-		return socket_;
-	}
 
 
 	void ClientConnection::SendToClient(const char *data, const size_t length)

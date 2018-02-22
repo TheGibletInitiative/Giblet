@@ -7,6 +7,7 @@
 #include <Protocols/YMsg/Parser.h>
 #include <functional>
 #include <map>
+#include <iostream>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

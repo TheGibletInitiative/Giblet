@@ -63,6 +63,7 @@
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
     <Import Project="..\YahooWeb\YahooWeb.props" />
     <Import Project="..\Mongoose\Mongoose.props" />
+    <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -70,6 +71,7 @@
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
     <Import Project="..\YahooWeb\YahooWeb.props" />
     <Import Project="..\Mongoose\Mongoose.props" />
+    <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -77,6 +79,7 @@
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
     <Import Project="..\YahooWeb\YahooWeb.props" />
     <Import Project="..\Mongoose\Mongoose.props" />
+    <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -84,6 +87,7 @@
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
     <Import Project="..\YahooWeb\YahooWeb.props" />
     <Import Project="..\Mongoose\Mongoose.props" />
+    <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -105,7 +109,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,7 +122,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +137,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,7 +154,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,6 +178,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Mongoose\Mongoose.vcxproj">
       <Project>{59aae5e9-e323-48b8-bc07-1893566fb855}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.vcxproj">
+      <Project>{5271b1e5-8db0-4124-85c8-290314e37068}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Protocols\YMsg\YMsgProtocolLibrary.vcxproj">
       <Project>{8d6f6015-00bc-4c47-b422-46abd5f2dd83}</Project>

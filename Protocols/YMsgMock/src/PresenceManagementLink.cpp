@@ -3,7 +3,7 @@
 //	This file is subject to the terms and conditions defined in
 //	file 'LICENSE.MD', which is part of this source code package.
 //
-#include <Protocols/YMsg/MockPresenceManagementLink.h>
+#include <Protocols/YMsgMock/PresenceManagementLink.h>
 
 
 namespace Giblet { namespace Protocols { namespace YMsg

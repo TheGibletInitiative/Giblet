@@ -18,11 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BlockedContactManagementLink.cpp" />
+    <ClCompile Include="src\ContactManagementLink.cpp" />
+    <ClCompile Include="src\AuthenticationPacketDispatcher.cpp" />
+    <ClCompile Include="src\PresenceManagementLink.cpp" />
+    <ClCompile Include="src\ProfileManagementLink.cpp" />
+    <ClCompile Include="src\SessionContext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Protocols\YMsgMock\BlockedContactManagementLink.h" />
+    <ClInclude Include="include\Protocols\YMsgMock\ContactManagementLink.h" />
+    <ClInclude Include="include\Protocols\YMsgMock\AuthenticationPacketDispatcher.h" />
+    <ClInclude Include="include\Protocols\YMsgMock\PresenceManagementLink.h" />
+    <ClInclude Include="include\Protocols\YMsgMock\ProfileManagementLink.h" />
+    <ClInclude Include="include\Protocols\YMsgMock\SessionContext.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D653FAD6-1180-425D-A333-DB3A136460AD}</ProjectGuid>
+    <ProjectGuid>{5271B1E5-8DB0-4124-85C8-290314E37068}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>YahooWeb</RootNamespace>
+    <RootNamespace>YMsgProtocolMockLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -59,31 +75,27 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Common.props" />
-    <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\YMsg\YMsgProtocolLibrary.props" />
+    <Import Project="YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Common.props" />
-    <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\YMsg\YMsgProtocolLibrary.props" />
+    <Import Project="YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Common.props" />
-    <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\YMsg\YMsgProtocolLibrary.props" />
+    <Import Project="YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Common.props" />
-    <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
+    <Import Project="..\..\Common.props" />
+    <Import Project="..\YMsg\YMsgProtocolLibrary.props" />
+    <Import Project="YMsgProtocolMockLibrary.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -100,7 +112,6 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -113,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -126,7 +136,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -143,7 +152,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -158,28 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="include\YahooWeb\MultilHostWebServer.h" />
-    <ClInclude Include="include\YahooWeb\MyYahooWebServer.h" />
-    <ClInclude Include="include\YahooWeb\Utilities.h" />
-    <ClInclude Include="include\YahooWeb\WebServer.h" />
-    <ClInclude Include="include\YahooWeb\YahooInsiderWebServer.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\MultilHostWebServer.cpp" />
-    <ClCompile Include="src\MyYahooWebServer.cpp" />
-    <ClCompile Include="src\Utilities.cpp" />
-    <ClCompile Include="src\WebServer.cpp" />
-    <ClCompile Include="src\YahooInsiderWebServer.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
