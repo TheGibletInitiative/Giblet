@@ -278,10 +278,13 @@
     <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\AuthenticationPacketDispatcher.h">
+    <ClInclude Include="include\Protocols\YMsg\SharedPtrAsRefArg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsg\V11PacketDispatcher.h">
+    <ClInclude Include="include\Protocols\YMsg\AuthenticationHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Protocols\YMsg\DispatchMaps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -445,10 +448,13 @@
     <ClCompile Include="src\ConnectionPump.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Server\AuthenticationPacketDispatcher.cpp">
+    <ClCompile Include="src\AuthenticationHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Server\V11PacketDispatcher.cpp">
+    <ClCompile Include="src\DispatchMaps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PacketDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

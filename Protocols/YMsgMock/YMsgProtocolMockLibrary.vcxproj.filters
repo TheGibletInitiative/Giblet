@@ -26,7 +26,7 @@
     <ClCompile Include="src\SessionContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AuthenticationPacketDispatcher.cpp">
+    <ClCompile Include="src\AuthenticationHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -46,7 +46,7 @@
     <ClInclude Include="include\Protocols\YMsgMock\SessionContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Protocols\YMsgMock\AuthenticationPacketDispatcher.h">
+    <ClInclude Include="include\Protocols\YMsgMock\AuthenticationHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

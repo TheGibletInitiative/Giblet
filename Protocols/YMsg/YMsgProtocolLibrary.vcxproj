@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AuthenticationHandler.cpp" />
     <ClCompile Include="src\BlockedContactManagementEvents.cpp" />
     <ClCompile Include="src\BlockedContactManager.cpp" />
     <ClCompile Include="src\Builder.cpp" />
@@ -154,12 +155,13 @@
     <ClCompile Include="src\ConnectionPump.cpp" />
     <ClCompile Include="src\ContactManagementEvents.cpp" />
     <ClCompile Include="src\ContactManager.cpp" />
+    <ClCompile Include="src\DispatchMaps.cpp" />
+    <ClCompile Include="src\PacketDispatcher.cpp" />
     <ClCompile Include="src\Parser.cpp" />
     <ClCompile Include="src\PresenceEvents.cpp" />
     <ClCompile Include="src\PresenceManager.cpp" />
     <ClCompile Include="src\ProfileManagementEvents.cpp" />
     <ClCompile Include="src\ProfileManager.cpp" />
-    <ClCompile Include="src\Server\AuthenticationPacketDispatcher.cpp" />
     <ClCompile Include="src\Server\Header.cpp" />
     <ClCompile Include="src\Server\Payloads\DenyContactAddRequest.cpp" />
     <ClCompile Include="src\Server\Payloads\MassPrivateMessage.cpp" />
@@ -183,10 +185,9 @@
     <ClCompile Include="src\Server\Processors\ServiceOperation.cpp" />
     <ClCompile Include="src\Server\Processors\SetAvailable.cpp" />
     <ClCompile Include="src\Server\Processors\SetAway.cpp" />
-    <ClCompile Include="src\Server\V11PacketDispatcher.cpp" />
     <ClCompile Include="src\SessionContext.cpp" />
     <ClCompile Include="src\SessionGateway.cpp" />
-    <ClInclude Include="include\Protocols\YMsg\AuthenticationPacketDispatcher.h" />
+    <ClInclude Include="include\Protocols\YMsg\AuthenticationHandler.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementEvents.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManager.h" />
     <ClInclude Include="include\Protocols\YMsg\BlockedContactManagementLink.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="include\Protocols\YMsg\ContactManagementEvents.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsg\ContactManager.h" />
+    <ClInclude Include="include\Protocols\YMsg\DispatchMaps.h" />
     <ClInclude Include="include\Protocols\YMsg\Header.h" />
     <ClInclude Include="include\Protocols\YMsg\PacketDispatcher.h" />
     <ClInclude Include="include\Protocols\YMsg\Parser.h" />
@@ -234,6 +236,7 @@
     <ClInclude Include="include\Protocols\YMsg\Server\Processors\SetAway.h" />
     <ClInclude Include="include\Protocols\YMsg\SessionContext.h" />
     <ClInclude Include="include\Protocols\Ymsg\SessionGateway.h" />
+    <ClInclude Include="include\Protocols\YMsg\SharedPtrAsRefArg.h" />
     <ClInclude Include="include\Protocols\Ymsg\Types.h" />
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChallengeResponse.h" />
     <ClInclude Include="include\Protocols\Ymsg\Server\Builders\ChatLoginResponse.h" />
@@ -271,7 +274,6 @@
     <ClCompile Include="src\Server\Payloads\ActivateProfile.cpp" />
     <ClCompile Include="src\Server\Payloads\DeactivateProfile.cpp" />
     <ClCompile Include="src\Server\Payloads\RemoveContact.cpp" />
-    <ClInclude Include="include\Protocols\YMsg\V11PacketDispatcher.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Server\Builders\ClientProfile.cpp" />

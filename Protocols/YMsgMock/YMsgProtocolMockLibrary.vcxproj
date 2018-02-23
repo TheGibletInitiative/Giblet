@@ -19,17 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\AuthenticationHandler.cpp" />
     <ClCompile Include="src\BlockedContactManagementLink.cpp" />
     <ClCompile Include="src\ContactManagementLink.cpp" />
-    <ClCompile Include="src\AuthenticationPacketDispatcher.cpp" />
     <ClCompile Include="src\PresenceManagementLink.cpp" />
     <ClCompile Include="src\ProfileManagementLink.cpp" />
     <ClCompile Include="src\SessionContext.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Protocols\YMsgMock\AuthenticationHandler.h" />
     <ClInclude Include="include\Protocols\YMsgMock\BlockedContactManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsgMock\ContactManagementLink.h" />
-    <ClInclude Include="include\Protocols\YMsgMock\AuthenticationPacketDispatcher.h" />
     <ClInclude Include="include\Protocols\YMsgMock\PresenceManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsgMock\ProfileManagementLink.h" />
     <ClInclude Include="include\Protocols\YMsgMock\SessionContext.h" />

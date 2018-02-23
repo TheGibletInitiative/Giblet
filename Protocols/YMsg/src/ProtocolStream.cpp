@@ -21,11 +21,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void ProtocolStream::SetDispatcher(DispatcherFunction dispatcher)
-	{
-		dispatcher_ = dispatcher;
-	}
-
 
 
 	bool ProtocolStream::HasHeader() const
@@ -97,7 +92,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		if (dispatcher_)
 		{
-			dispatcher_(pump, header, payloadBegin, payloadEnd);
+			dispatcher_(pump, *this, header, payloadBegin, payloadEnd);
 		}
 
 		data_.erase(data_.begin(), payloadEnd);

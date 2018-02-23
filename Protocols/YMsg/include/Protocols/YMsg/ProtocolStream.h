@@ -21,20 +21,17 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		using const_iterator_type = buffer_type::const_iterator;
 		using connection_type = ClientConnection;
 		using socket_type = connection_type::socket_type;
-		using DispatcherFunction = std::function<void(ConnectionPump&, const Header&, const_iterator_type, const_iterator_type)>;
+		using DispatcherFunction = std::function<void(ConnectionPump&, ProtocolStream&, const Header&, const_iterator_type, const_iterator_type)>;
 
 
 	public:
 
-		ProtocolStream() = default;
+		ProtocolStream() = delete;
 		explicit ProtocolStream(DispatcherFunction dispatcher);
 		ProtocolStream(const ProtocolStream&) = delete;
 		virtual ~ProtocolStream() = default;
 
 		ProtocolStream& operator=(const ProtocolStream&) = delete;
-
-
-		virtual void SetDispatcher(DispatcherFunction dispatcher);
 
 		virtual bool ProcessPendingData(ConnectionPump& pump, socket_type socket, size_t incomingSize);
 
