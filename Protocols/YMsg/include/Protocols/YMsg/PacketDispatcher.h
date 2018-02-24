@@ -15,7 +15,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	class ConnectionPump;
 	class ProtocolStream;
 
-	class PacketDispatcher
+	class PacketDispatcher : public std::enable_shared_from_this<PacketDispatcher>
 	{
 	public:
 

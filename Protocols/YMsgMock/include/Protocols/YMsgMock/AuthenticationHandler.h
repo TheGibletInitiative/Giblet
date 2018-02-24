@@ -16,7 +16,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 		using AuthenticationHandler::AuthenticationHandler;
 
-		void OnSessionAuthenticated(PacketDispatcher& dispatcher) override;
+		void OnClientAuthenticated(ConnectionPump& pump, PacketDispatcher& dispatcher) override;
 	};
 
 }}}

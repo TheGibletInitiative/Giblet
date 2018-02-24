@@ -32,35 +32,32 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	public:
 
 		virtual void OnProtocolSync(
-			PacketDispatcher& dispatcher,
 			const header_type& header,
 			const_iterator payloadBegin,
 			const_iterator payloadEnd);
 
 
 		virtual void OnChallengeRequest(
-			PacketDispatcher& dispatcher,
 			const header_type& header,
 			const_iterator payloadBegin,
 			const_iterator payloadEnd);
 
 		virtual void OnAuthenticate(
+			ConnectionPump& pump,
 			PacketDispatcher& dispatcher,
 			const header_type& header,
 			const_iterator payloadBegin,
 			const_iterator payloadEnd);
 
-		virtual void OnClientAuthenticated(PacketDispatcher& dispatcher);
-
-		virtual void OnSessionAuthenticated(PacketDispatcher& dispatcher) = 0;
+		virtual void OnClientAuthenticated(ConnectionPump& pump, PacketDispatcher& dispatcher) = 0;
 
 
 	protected:
 
 		const std::shared_ptr<ClientConnection> connection_;
 		string_type			clientId_;
+		string_type			password_;
 		availability_type	initialAvailability_ = availability_type::Offline;
-
 	};
 
 }}}

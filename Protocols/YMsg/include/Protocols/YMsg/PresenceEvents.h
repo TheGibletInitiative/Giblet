@@ -32,10 +32,10 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 		//	Triggered by server
-		virtual void OnContactAvailable(string_view_type contactId);
+		virtual void OnContactAvailable(string_view_type contactId, bool showNotification);
 		virtual void OnContactIdle(string_view_type contactId, string_view_type idleUnknown, string_view_type message, bool isBusy);
 		virtual void OnContactAway(string_view_type contactId, availability_type availability, bool isBusy);
-		virtual void OnContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy);
+		virtual void OnContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy, bool showNotification);
 		virtual void OnContactOffline(string_view_type contactId);
 
 	protected:

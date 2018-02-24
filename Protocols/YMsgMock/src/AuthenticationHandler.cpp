@@ -15,8 +15,10 @@
 namespace Giblet { namespace Protocols { namespace YMsg
 {
 
-	void MockAuthenticationHandler::OnSessionAuthenticated(PacketDispatcher& dispatcher)
+	void MockAuthenticationHandler::OnClientAuthenticated(ConnectionPump& pump, PacketDispatcher& dispatcher)
 	{
+		((void)pump);
+
 		const auto profileManager(std::make_shared<ProfileManager>());
 		const auto profileManagementEvents(std::make_shared<ProfileManagementEvents>(connection_, profileManager));
 		const auto profileManagement(std::make_shared<MockProfileManagementLink>(profileManager, profileManagementEvents));

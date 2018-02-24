@@ -139,6 +139,18 @@ namespace Giblet { namespace Protocols { namespace YMsg { namespace Server { nam
 			AppendContacts(contacts);
 		}
 
+
+		virtual void Build(
+			connection_type& connection,
+			string_view_type clientId,
+			const ContactInfo& contact)
+		{
+			Initialize(connection, ServiceId, AttributeId);
+			Append(Keys::ClientId1, clientId);
+			Append(Keys::ClientId2, clientId);
+			AppendContact(contact);
+		}
+
 	};
 
 }}}}}

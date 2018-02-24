@@ -45,7 +45,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		{
 			if (contactManager_->IsContact(profile))
 			{
-				presenceEvents_->OnContactAvailable(profile);
+				presenceEvents_->OnContactAvailable(profile, true);
 			}
 		}
 	}
@@ -90,7 +90,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		{
 			if (contactManager_->IsContact(profile))
 			{
-				presenceEvents_->OnContactStatusMessage(profile, message, isBusy);
+				presenceEvents_->OnContactStatusMessage(profile, message, isBusy, true);
 			}
 		}
 	}

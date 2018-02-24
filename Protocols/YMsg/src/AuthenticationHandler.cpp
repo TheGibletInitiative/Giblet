@@ -22,7 +22,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 	void AuthenticationHandler::OnProtocolSync(
-		PacketDispatcher& dispatcher,
 		const header_type& header,
 		const_iterator payloadBegin,
 		const_iterator payloadEnd)
@@ -41,7 +40,6 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 	void AuthenticationHandler::OnChallengeRequest(
-		PacketDispatcher& dispatcher,
 		const header_type& header,
 		const_iterator payloadBegin,
 		const_iterator payloadEnd)
@@ -60,6 +58,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 	void AuthenticationHandler::OnAuthenticate(
+		ConnectionPump& pump,
 		PacketDispatcher& dispatcher,
 		const header_type& header,
 		const_iterator payloadBegin,
@@ -81,27 +80,11 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			? availability_type::Offline
 			: availability_type::Available;
 
-		OnClientAuthenticated(dispatcher);
+		password_ = "password";
+		OnClientAuthenticated(pump, dispatcher);
 	}
 
 
-	void AuthenticationHandler::OnClientAuthenticated(PacketDispatcher& dispatcher)
-	{
-		//	Get rid of the processors so no incoming packets from the client are processed
-		//	until authentication has completed.
-		//processors_.clear();
-
-		//	connect to [XMPP] server
-
-		//	authenticate with server
-
-		//	retrieve profile
-
-		//	retrieve roster/buddy list
-
-		//	Everything complete
-		OnSessionAuthenticated(dispatcher);
-	}
 
 
 	AuthenticationHandler::container_type AuthenticationHandler::CreateDispatchMap(std::shared_ptr<AuthenticationHandler> handler)
@@ -110,9 +93,9 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		
 		return
 		{
-			{Server::Payloads::ProtocolSync::ServiceId, bind(&AuthenticationHandler::OnProtocolSync, handler, _3, _4, _5, _6)},
-			{Server::Payloads::ChallengeRequest::ServiceId, bind(&AuthenticationHandler::OnChallengeRequest, handler, _3, _4, _5, _6)},
-			{Server::Payloads::Authentication::ServiceId, bind(&AuthenticationHandler::OnAuthenticate, handler, _3, _4, _5, _6)},
+			{Server::Payloads::ProtocolSync::ServiceId, bind(&AuthenticationHandler::OnProtocolSync, handler, _4, _5, _6)},
+			{Server::Payloads::ChallengeRequest::ServiceId, bind(&AuthenticationHandler::OnChallengeRequest, handler, _4, _5, _6)},
+			{Server::Payloads::Authentication::ServiceId, bind(&AuthenticationHandler::OnAuthenticate, handler, _1, _3, _4, _5, _6)},
 		};
 	}
 

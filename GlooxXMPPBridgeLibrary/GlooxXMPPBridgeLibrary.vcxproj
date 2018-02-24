@@ -18,35 +18,49 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\AuthenticationHandler.cpp" />
+    <ClCompile Include="src\ExtendedClient.cpp" />
+    <ClCompile Include="src\ExtendedConnectionTCPClient.cpp" />
+    <ClCompile Include="src\PresenceHandler.cpp" />
+    <ClCompile Include="src\RosterListener.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GlooxXMPPBridgeLibrary\AuthenticationHandler.h" />
+    <ClInclude Include="include\GlooxXMPPBridgeLibrary\ExtendedClient.h" />
+    <ClInclude Include="include\GlooxXMPPBridgeLibrary\ExtendedConnectionTCPClient.h" />
+    <ClInclude Include="include\GlooxXMPPBridgeLibrary\PresenceHandler.h" />
+    <ClInclude Include="include\GlooxXMPPBridgeLibrary\RosterListener.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{FBC3419F-D075-4917-B925-504175DF4CCB}</ProjectGuid>
+    <ProjectGuid>{D17FBC28-BDC8-4AAD-8E1E-79B5AE2FBFC2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TestHarness</RootNamespace>
+    <RootNamespace>GlooxXMPPBridgeLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -61,41 +75,33 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Common.props" />
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
     <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
     <Import Project="..\gloox-1.0.20\Gloox.props" />
-    <Import Project="..\GlooxXMPPBridgeLibrary\GlooxXMPPBridgeLibrary.props" />
+    <Import Project="GlooxXMPPBridgeLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Common.props" />
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
     <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
     <Import Project="..\gloox-1.0.20\Gloox.props" />
-    <Import Project="..\GlooxXMPPBridgeLibrary\GlooxXMPPBridgeLibrary.props" />
+    <Import Project="GlooxXMPPBridgeLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Common.props" />
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
     <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
     <Import Project="..\gloox-1.0.20\Gloox.props" />
-    <Import Project="..\GlooxXMPPBridgeLibrary\GlooxXMPPBridgeLibrary.props" />
+    <Import Project="GlooxXMPPBridgeLibrary.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Common.props" />
     <Import Project="..\Protocols\YMsg\YMsgProtocolLibrary.props" />
-    <Import Project="..\YahooWeb\YahooWeb.props" />
-    <Import Project="..\Mongoose\Mongoose.props" />
     <Import Project="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.props" />
     <Import Project="..\gloox-1.0.20\Gloox.props" />
-    <Import Project="..\GlooxXMPPBridgeLibrary\GlooxXMPPBridgeLibrary.props" />
+    <Import Project="GlooxXMPPBridgeLibrary.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,42 +118,42 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -155,73 +161,21 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="TestHarness.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\gloox-1.0.20\gloox.vcxproj">
-      <Project>{36e32bc3-0645-4c90-8bf5-6495acb7cf5f}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\GlooxXMPPBridgeLibrary\GlooxXMPPBridgeLibrary.vcxproj">
-      <Project>{d17fbc28-bdc8-4aad-8e1e-79b5ae2fbfc2}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Mongoose\Mongoose.vcxproj">
-      <Project>{59aae5e9-e323-48b8-bc07-1893566fb855}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Protocols\YMsgMock\YMsgProtocolMockLibrary.vcxproj">
-      <Project>{5271b1e5-8db0-4124-85c8-290314e37068}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Protocols\YMsg\YMsgProtocolLibrary.vcxproj">
-      <Project>{8d6f6015-00bc-4c47-b422-46abd5f2dd83}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\YahooWeb\YahooWeb.vcxproj">
-      <Project>{d653fad6-1180-425d-a333-db3a136460ad}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="htdoc\chat.yahoo.com\c2\msg\trans.html" />
-    <None Include="htdoc\chat.yahoo.com\c\admsg.html" />
-    <None Include="htdoc\chat.yahoo.com\c\msg\chat.html" />
-    <None Include="htdoc\chat.yahoo.com\c\msg\tabs.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\auctions.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\channel.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\faretrack.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\scoreboard.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\sites.html" />
-    <None Include="htdoc\my.yahoo.com\tearoff\weather.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="htdoc\insider.yahoo.com\chatCategories.xml" />
-    <Xml Include="htdoc\insider.yahoo.com\filters.xml" />
-    <Xml Include="htdoc\insider.yahoo.com\imvironments.xml" />
-    <Xml Include="htdoc\insider.yahoo.com\roomTopics.xml" />
-    <Xml Include="htdoc\insider.yahoo.com\system.xml" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

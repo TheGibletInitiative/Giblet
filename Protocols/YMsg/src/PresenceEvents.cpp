@@ -32,7 +32,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 
 
 
-	void PresenceEvents::OnContactAvailable(string_view_type contactId)
+	void PresenceEvents::OnContactAvailable(string_view_type contactId, bool showNotification)
 	{
 		auto contactInfo(contactManager_->SetContactAvailable(contactId));
 		if (!contactInfo)
@@ -40,9 +40,20 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			throw std::runtime_error("Don't know how to handle idle contact not in list");
 		}
 
-		Server::Builders::UpdateContactStatus builder;
-		builder.Build(*connection_, *contactInfo);
-		builder.Send(*connection_);
+		if (showNotification)
+		{
+			Server::Builders::UpdateContactStatus builder;
+			builder.Build(*connection_, *contactInfo);
+			builder.Send(*connection_);
+		}
+		else
+		{
+			Server::Builders::SetContactStatus builder;
+			//	FIXME: We should pass the client id here but it's not available at the moment
+			builder.Build(*connection_, "", *contactInfo);
+			builder.Send(*connection_);
+
+		}
 	}
 
 
@@ -74,7 +85,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 	}
 
 
-	void PresenceEvents::OnContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy)
+	void PresenceEvents::OnContactStatusMessage(string_view_type contactId, string_view_type message, bool isBusy, bool showNotification)
 	{
 		auto contactInfo(contactManager_->SetContactStatusMessage(contactId, message, isBusy));
 		if (!contactInfo)
@@ -82,9 +93,20 @@ namespace Giblet { namespace Protocols { namespace YMsg
 			throw std::runtime_error("Don't know how to handle idle contact not in list");
 		}
 
-		Server::Builders::UpdateContactStatus builder;
-		builder.Build(*connection_, *contactInfo);
-		builder.Send(*connection_);
+		if (showNotification)
+		{
+			Server::Builders::UpdateContactStatus builder;
+			builder.Build(*connection_, *contactInfo);
+			builder.Send(*connection_);
+		}
+		else
+		{
+			Server::Builders::SetContactStatus builder;
+			//	FIXME: We should pass the client id here but it's not available at the moment
+			builder.Build(*connection_, "", *contactInfo);
+			builder.Send(*connection_);
+
+		}
 	}
 
 

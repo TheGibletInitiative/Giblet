@@ -21,7 +21,7 @@ namespace Giblet { namespace Protocols { namespace YMsg
 		const auto clientId(profileManager_->GetClientId());
 
 		//	Send pending alerts. Should probably be handled in the authentication stuff
-		if(clientId.find('@') != string_type::npos)
+		if(clientId.find('*') != string_type::npos)
 		{
 			//	Example yahoo alert
 			Server::Builders::YahooAlert yahooAlertBuilder;
